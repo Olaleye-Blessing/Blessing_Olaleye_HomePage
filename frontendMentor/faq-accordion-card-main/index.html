@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <meta name="Authur" content="Olaleye Blessing" />
+        <meta
+            name="Description"
+            content="FAQ Accordion Card from Frontend Mentor"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | FAQ Accordion Card</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="index.js" defer></script>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+                margin-block-start: 2rem;
+                margin-block-end: 2rem;
+            }
+            .attribution a {
+                /* color: hsl(228, 45%, 44%); */
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <section class="FAQ" id="FAQ">
+                <div class="FAQ__little-box"></div>
+                <div class="FAQ__background"></div>
+                <section class="FAQ__main">
+                    <header class="FAQ__header">FAQ</header>
+                    <ul class="FAQ__lists">
+                        <li class="FAQ__list">
+                            <input
+                                class="FAQ__checkbox"
+                                type="checkbox"
+                                id="q-1"
+                            />
+                            <label class="FAQ__question" for="q-1">
+                                How many team members can I invite?
+                            </label>
+                            <div class="FAQ__answer">
+                                You can invite up to 2 additional users on the
+                                Free plan. There is no limit on team members for
+                                the Premium plan.
+                            </div>
+                        </li>
+                        <li class="FAQ__list">
+                            <input
+                                class="FAQ__checkbox"
+                                type="checkbox"
+                                id="q-2"
+                            />
+                            <label class="FAQ__question" for="q-2">
+                                What is the maximum file upload size?
+                            </label>
+                            <div class="FAQ__answer">
+                                No more than 2GB. All files in your account must
+                                fit your allotted storage space.
+                            </div>
+                        </li>
+                        <li class="FAQ__list">
+                            <input
+                                class="FAQ__checkbox"
+                                type="checkbox"
+                                id="q-3"
+                            />
+                            <label class="FAQ__question" for="q-3">
+                                How do I reset my password?
+                            </label>
+                            <div class="FAQ__answer">
+                                Click “Forgot password” from the login page or
+                                “Change password” from your profile page.A reset
+                                link will be emailed to you.
+                            </div>
+                        </li>
+                        <li class="FAQ__list">
+                            <input
+                                class="FAQ__checkbox"
+                                type="checkbox"
+                                id="q-4"
+                            />
+                            <label class="FAQ__question" for="q-4">
+                                Can I cancel my subscription?
+                            </label>
+                            <div class="FAQ__answer">
+                                Yes! Send us a message and we’ll process your
+                                request no questions asked.
+                            </div>
+                        </li>
+                        <li class="FAQ__list">
+                            <input
+                                class="FAQ__checkbox"
+                                type="checkbox"
+                                id="q-5"
+                            />
+                            <label class="FAQ__question" for="q-5">
+                                Do you provide additional support?
+                            </label>
+                            <div class="FAQ__answer">
+                                Chat and email support is available 24/7. Phone
+                                lines are open during normal business hours.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </main>
+
+        <footer class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by <a href="#">Olaleye Blessing</a>.
+        </footer>
+    </body>
+</html>

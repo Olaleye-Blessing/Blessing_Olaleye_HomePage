@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="Authur" content="Olaleye Blessing" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | [Challenge Name Here]</title>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                margin-block-start: 2rem;
+                font-size: 1.4rem;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+                text-decoration: none;
+            }
+        </style>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="index.js" defer></script>
+    </head>
+    <body class="black-mode">
+        <main>
+            <header class="head">
+                <div class="head__dashboard">
+                    <h3 class="heading">Social Media Dashboard</h3>
+                    <div>Total Followers: 23,004</div>
+                </div>
+                <div class="mode">
+                    <span>Dark Mode</span>
+                    <label for="mode" class="mode__toggle" id="js-toggle">
+                        <input type="checkbox" id="mode" />
+                        <span class="mode__toggle-slider"></span>
+                    </label>
+                </div>
+            </header>
+            <section class="social grid">
+                <div class="social__medium dark-card fac card">
+                    <div class="social__medium-at">
+                        <span
+                            ><img
+                                src="images/icon-facebook.svg"
+                                alt="facebook icon"
+                                class="social__medium-pic" /></span
+                        ><span class="social__medium-id">@nathanf</span>
+                    </div>
+                    <div class="social__medium-followers">
+                        <span>1987</span><span>FOLLOWERS</span>
+                    </div>
+                    <div class="social__medium-date">
+                        <span
+                            ><img
+                                src="images/icon-up.svg"
+                                alt="up icon"
+                                class="social__medium-icon" /></span
+                        ><span class="positive">12 Today</span>
+                    </div>
+                </div>
+                <div class="social__medium dark-card twi card">
+                    <div class="social__medium-at">
+                        <span
+                            ><img
+                                src="images/icon-twitter.svg"
+                                alt="facebook icon"
+                                class="social__medium-pic" /></span
+                        ><span class="social__medium-id">@nathanf</span>
+                    </div>
+                    <div class="social__medium-followers">
+                        <span>1044</span><span>FOLLOWERS</span>
+                    </div>
+                    <div class="social__medium-date">
+                        <span
+                            ><img
+                                src="images/icon-up.svg"
+                                alt="up icon"
+                                class="social__medium-icon" /></span
+                        ><span class="positive">99 Today</span>
+                    </div>
+                </div>
+                <div class="social__medium dark-card ins card">
+                    <div class="social__medium-at">
+                        <span
+                            ><img
+                                src="images/icon-instagram.svg"
+                                alt="facebook icon"
+                                class="social__medium-pic" /></span
+                        ><span class="social__medium-id">@realnathanf</span>
+                    </div>
+                    <div class="social__medium-followers">
+                        <span>11K</span><span>FOLLOWERS</span>
+                    </div>
+                    <div class="social__medium-date">
+                        <span
+                            ><img
+                                src="images/icon-up.svg"
+                                alt="up icon"
+                                class="social__medium-icon" /></span
+                        ><span class="positive">1099 Today</span>
+                    </div>
+                </div>
+                <div class="social__medium dark-card youtube card">
+                    <div class="social__medium-at">
+                        <span
+                            ><img
+                                src="images/icon-youtube.svg"
+                                alt="facebook icon"
+                                class="social__medium-pic" /></span
+                        ><span class="social__medium-id">Nathan F.</span>
+                    </div>
+                    <div class="social__medium-followers">
+                        <span>8239</span><span>FOLLOWERS</span>
+                    </div>
+                    <div class="social__medium-date">
+                        <span
+                            ><img
+                                src="images/icon-down.svg"
+                                alt="down icon"
+                                class="social__medium-icon" /></span
+                        ><span class="negative">144 Today</span>
+                    </div>
+                </div>
+            </section>
+            <section class="overview">
+                <header><h3 class="heading">Overview - Today</h3></header>
+                <div class="grid">
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Page Views</span>
+                            <span
+                                ><img
+                                    src="images/icon-facebook.svg"
+                                    alt="facebook icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>87</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-up.svg"
+                                        alt="up icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="positive">3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Likes</span>
+                            <span
+                                ><img
+                                    src="images/icon-facebook.svg"
+                                    alt="facebook icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>52</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-down.svg"
+                                        alt="down icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="negative">2%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Likes</span>
+                            <span
+                                ><img
+                                    src="images/icon-instagram.svg"
+                                    alt="instagram icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>5462</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-up.svg"
+                                        alt="up icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="positive">2257%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Profile Views</span>
+                            <span
+                                ><img
+                                    src="images/icon-instagram.svg"
+                                    alt="instagram icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>52K</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-up.svg"
+                                        alt="up icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="positive">1375%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Retweets</span>
+                            <span
+                                ><img
+                                    src="images/icon-twitter.svg"
+                                    alt="twitter icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>117</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-up.svg"
+                                        alt="up icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="positive">303%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Likes</span>
+                            <span
+                                ><img
+                                    src="images/icon-twitter.svg"
+                                    alt="twitter icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>507</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-up.svg"
+                                        alt="up icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="positive">553%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Likes</span>
+                            <span
+                                ><img
+                                    src="images/icon-youtube.svg"
+                                    alt="youtube icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>107</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-down.svg"
+                                        alt="down icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="negative">19%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-card overview__card">
+                        <div class="overview__card-detail">
+                            <span>Total Views</span>
+                            <span
+                                ><img
+                                    src="images/icon-youtube.svg"
+                                    alt="youtube icon"
+                            /></span>
+                        </div>
+                        <div class="overview__card-number">
+                            <span>1407</span>
+                            <div>
+                                <span
+                                    ><img
+                                        src="images/icon-down.svg"
+                                        alt="down icon"
+                                        class="social__medium-icon" /></span
+                                ><span class="negative">3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by <a href="#">Olaleye Blessing</a>.
+        </footer>
+    </body>
+</html>

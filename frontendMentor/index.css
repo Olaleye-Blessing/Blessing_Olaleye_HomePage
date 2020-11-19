@@ -1,0 +1,50 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    padding: 2rem 2.5rem;
+}
+
+ul {
+    list-style: none;
+    /* background-color: red; */
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: hsl(228, 45%, 44%);
+    transition: color 0.3s linear;
+}
+
+a:focus, a:hover {
+    color: rgb(202, 136, 12);
+}
+
+a:active {
+    color: red;
+}
+
+.black-mode {
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(12%, #1f212e),
+        color-stop(12%, #1e202a)
+    );
+    background-image: linear-gradient(180deg, #1f212e 12%, #1e202a 12%);
+    color: white;
+}
