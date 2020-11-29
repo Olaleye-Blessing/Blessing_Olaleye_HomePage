@@ -1,38 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Todo app</title>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-  <link rel="stylesheet" href="css/index.css">
-  <script src="index.js" defer></script>
-</head>
-<body>
+        <title>Frontend Mentor | Todo app</title>
 
-  Todo
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="index.js" defer></script>
+    </head>
+    <body class="moon__mode-body">
+        <header class="moon__mode-header">
+            <div class="header__heading">
+                <h2 class="header__head">TODO</h2>
+                <div>
+                    <img
+                        id="modeSwitch"
+                        src="images/icon-sun.svg"
+                        alt="sun-mode icon"
+                    />
+                </div>
+            </div>
+            <div class="box moon__mode-box">
+                <input type="radio" name="" id="select" class="select__input" />
+                <label
+                    for="select"
+                    class="add js-label select__label moon__mode-label"
+                ></label>
+                <input
+                    type="text"
+                    name="text"
+                    id="addText"
+                    placeholder="Create a todo..."
+                    class="text"
+                />
+            </div>
+        </header>
 
-  <!-- Add dynamic number --> items left
+        <main>
+            <ul data-allLists="allLists" id="todoLists">
+                <!-- <li class="box moon__mode-box moon__mode-li" data-list="list">
+                    <input
+                        type="radio"
+                        name=""
+                        id="select"
+                        class="select__input"
+                    />
+                    <label
+                        data-stage=""
+                        for="select"
+                        class="js-label select__label moon__mode-label"
+                    ></label
+                    ><div class="list">
+                        <div class="list__word">lorem20 bsudfoooooo</div>
+                        <div data-stage="delete" class="list__delete"
+                            ><img src="images/icon-cross.svg" alt=""
+                        /></div>
+                    </div>
+                </li> -->
 
-  All
-  Active 
-  Completed
+                <li class="box moon__mode-box moon__mode-status moon__mode-li">
+                    <div class="items__left"><span>0</span> items left</div>
+                    <div class="items__clear">Clear Completed</div>
+                </li>
+            </ul>
 
-  Clear Completed
+            <ul data-activeLists="active"></ul>
 
-  Drag and drop to reorder list
+            <ul data-completedLists="completed"></ul>
 
-  <div class="attribution">
+            <div class="box moon__mode-box stage moon__mode-stage">
+                <span data-staging="allTodo" class="current-stage">All</span>
+                <span data-staging="activeTodo" class="moon__mode-hover"
+                    >Active</span
+                >
+                <span data-staging="completedTodo" class="moon__mode-hover"
+                    >Completed</span
+                >
+            </div>
+            <!-- <section class="statuses">
+                <div class="no-com">6 items left</div>
+                <div class="box sun__mode-box status">
+                    <span>All</span>
+                    <span>Active</span>
+                    <span>Completed</span>
+                </div>
+                <div class="clear-com">Clear Completed</div>
+            </section> -->
+        </main>
+
+        <!-- Add dynamic number -->
+        <!-- items left All Active Completed Clear Completed Drag and drop to reorder
+        list -->
+
+        <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+  </div> -->
+        <!-- <img src="images/icon-sun.svg"> -->
+        <!-- <img src="images/icon-moon.svg"> -->
+        <!-- <img src="images/icon-cross.svg"> -->
+        <!-- <img src="images/icon-check.svg"> -->
+    </body>
 </html>
