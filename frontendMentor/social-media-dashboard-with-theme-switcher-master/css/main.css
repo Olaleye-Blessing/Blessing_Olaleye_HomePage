@@ -117,6 +117,11 @@ body {
 }
 
 .mode {
+  font-weight: 700;
+  color: #8b97c6;
+}
+
+.mode__toggle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,16 +131,10 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-weight: 700;
-  color: #8b97c6;
-  position: relative;
-}
-
-.mode__toggle {
-  position: relative;
-  display: inline-block;
-  inline-size: 5rem;
   block-size: 2.5rem;
+  inline-size: 5rem;
+  inline-size: 100%;
+  position: relative;
 }
 
 .mode__toggle > input {
@@ -150,35 +149,33 @@ body {
   transition: 0.3s;
 }
 
-.mode__toggle > input:checked + .mode__toggle-slider::before {
-  -webkit-transform: translateX(2.2rem);
-          transform: translateX(2.2rem);
+.mode__toggle > input:checked + .mode__toggle-slider::after {
+  -webkit-transform: translateX(2.3rem);
+          transform: translateX(2.3rem);
   background-color: white;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .mode__toggle-slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  block-size: 2.8rem;
+  inline-size: 5.4rem;
   background-image: -webkit-gradient(linear, left top, right top, from(#378fe6), to(#3eda82));
   background-image: linear-gradient(90deg, #378fe6, #3eda82);
   -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: 3.4rem;
   cursor: pointer;
+  position: relative;
 }
 
-.mode__toggle-slider::before {
+.mode__toggle-slider::after {
   position: absolute;
-  content: "";
-  block-size: 1.8rem;
-  inline-size: 1.8rem;
-  left: 0.5rem;
   bottom: 0.4rem;
+  left: 0.5rem;
+  content: "";
+  block-size: 2rem;
+  inline-size: 2rem;
   background-color: #63687e;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -186,10 +183,9 @@ body {
 }
 
 @media screen and (min-width: 670px) {
-  .mode {
-    gap: 1.1rem;
-    -webkit-margin-before: -4rem;
-            margin-block-start: -4rem;
+  .mode__toggle {
+    gap: 1.2rem;
+    margin-top: -3rem;
   }
 }
 
