@@ -28,8 +28,12 @@ function enterKey(event) {
 
 textTodo.addEventListener('keydown', enterKey);
 
-// document.body.addEventListener('keydown')
-
+textTodo.addEventListener('focus', event => {
+    if (!activeParent.hidden || !completedParent.hidden) {
+        textTodo.blur();
+        // console.log('not hidden');
+    }
+})
 
 modeSwitcher.addEventListener('click', event => {
     let header = document.getElementsByTagName('header')[0];
