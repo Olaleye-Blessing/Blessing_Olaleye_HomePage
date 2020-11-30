@@ -30,8 +30,16 @@ textTodo.addEventListener('keydown', enterKey);
 
 textTodo.addEventListener('focus', event => {
     if (!activeParent.hidden || !completedParent.hidden) {
+        let message = document.createElement('div');
+        message.textContent = `Go to all status to add list`;
+         message.classList.add('emptyList');
+         setTimeout(() => {
+            addTodo.append(message);
+            setTimeout(() => {
+                message.remove();
+            }, 1000);
+         }, 1700);
         textTodo.blur();
-        // console.log('not hidden');
     }
 })
 
