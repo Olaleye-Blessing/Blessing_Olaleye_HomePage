@@ -188,39 +188,6 @@ header {
   margin-top: 1.4rem;
 }
 
-.statuses {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[8];
-      grid-template-columns: repeat(8, 1fr);
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-  row-gap: 2rem;
-}
-
-.no-com {
-  margin-left: 2rem;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1 / 4;
-}
-
-.status {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2 / 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 8;
-  grid-column: 1 / 9;
-}
-
-.clear-com {
-  text-align: right;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 4;
-  grid-column: 5 / 9;
-}
-
 .moon__mode-body {
   background-color: #161722;
   color: #fafafa;
@@ -313,7 +280,7 @@ header {
   border-radius: 0;
   -webkit-border-after: 0.01rem solid #cacde8;
           border-block-end: 0.01rem solid #cacde8;
-  color: #d2d3db;
+  color: #484b6a;
 }
 
 .sun__mode-li .select__label {
@@ -374,7 +341,14 @@ header {
 
 .items__clear:hover, .items__left:hover {
   cursor: pointer;
+}
+
+.moon__mode-status .items__clear:hover, .moon__mode-status .items__left:hover {
   color: #e4e5f1;
+}
+
+.sun__mode-status .items__clear:hover, .sun__mode-status .items__left:hover {
+  color: #25273c;
 }
 
 .current-stage {
@@ -400,6 +374,10 @@ header {
 
 .sun__mode-hover:hover {
   color: #25273c;
+}
+
+[data-list="list"] .list__word {
+  cursor: pointer;
 }
 
 .emptyList {

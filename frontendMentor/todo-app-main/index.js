@@ -44,6 +44,10 @@ modeSwitcher.addEventListener('click', event => {
                 box.classList.remove('moon__mode-li');
                 box.classList.add('sun__mode-li');
             }
+            if (box.classList.contains('moon__mode-status')) {
+                box.classList.remove('moon__mode-status');
+                box.classList.add('sun__mode-status');
+            }
         }
 
         for (let label of jsLabels) {
@@ -51,6 +55,11 @@ modeSwitcher.addEventListener('click', event => {
                 label.classList.remove('moon__mode-label');
                 label.classList.add('sun__mode-label');
             }
+        }
+
+        for (let status of stage.querySelectorAll('[data-staging]')) {
+            status.classList.remove('moon__mode-hover');
+            status.classList.add('sun__mode-hover');
         }
 
     } else {
@@ -73,6 +82,10 @@ modeSwitcher.addEventListener('click', event => {
                 box.classList.remove('sun__mode-li');
                 box.classList.add('moon__mode-li');
             }
+            if (box.classList.contains('sun__mode-status')) {
+                box.classList.remove('sun__mode-status');
+                box.classList.add('moon__mode-status');
+            }
         }
 
         for (let label of jsLabels) {
@@ -82,6 +95,10 @@ modeSwitcher.addEventListener('click', event => {
             }
         }
 
+        for (let status of stage.querySelectorAll('[data-staging]')) {
+            status.classList.remove('sun__mode-hover');
+            status.classList.add('moon__mode-hover');
+        }
 
     }
 })
@@ -95,6 +112,7 @@ function addingTodo(event) {
         message.textContent = `Can't make empty list`;
          message.classList.add('emptyList');
          addTodo.append(message);
+         todoText.focus();
          setTimeout(() => {
              message.remove();
          }, 1500);
@@ -121,6 +139,7 @@ function addingTodo(event) {
     </span>`
     } else {
         li.classList.add('box', 'sun__mode-box', 'sun__mode-li');
+        li.setAttribute('data-list', 'list');
         li.innerHTML = `<input
         type="radio"
         name=""
@@ -129,7 +148,7 @@ function addingTodo(event) {
     />
     <label
         for="select"
-        class="js-label select__label sun__mode-label"
+        class="js-label select__label sun__mode-label" data-stage=""
     ></label
     ><span class="list">
         <span class="list__word">${todoTextValue}</span>
