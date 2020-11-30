@@ -18,6 +18,18 @@ let activeParent = document.querySelector('[data-activeLists]');
 
 let completedParent = document.querySelector('[data-completedLists]');
 
+let textTodo = document.querySelector('.text');
+
+function enterKey(event) {
+    if (event.key == 'Enter') {
+        addingTodo();
+    }
+}
+
+textTodo.addEventListener('keydown', enterKey);
+
+// document.body.addEventListener('keydown')
+
 
 modeSwitcher.addEventListener('click', event => {
     let header = document.getElementsByTagName('header')[0];
