@@ -20,6 +20,14 @@ let completedParent = document.querySelector('[data-completedLists]');
 
 let textTodo = document.querySelector('.text');
 
+let drag = document.querySelector('.drag');
+
+function dragList(event) {
+    
+}
+
+todoLists.addEventListener('pointerdown', dragList);
+
 function enterKey(event) {
     if (event.key == 'Enter') {
         addingTodo();
@@ -60,6 +68,9 @@ modeSwitcher.addEventListener('click', event => {
 
         stage.classList.remove('moon__mode-stage');
         stage.classList.add('sun__mode-stage');
+
+        drag.classList.remove('moon__mode-drag');
+        drag.classList.add('sun__mode-drag');
         
         for (let box of boxes) {
             box.classList.remove('moon__mode-box');
@@ -103,6 +114,9 @@ modeSwitcher.addEventListener('click', event => {
 
         stage.classList.add('moon__mode-stage');
         stage.classList.remove('sun__mode-stage');
+
+        drag.classList.add('moon__mode-drag');
+        drag.classList.remove('sun__mode-drag');
 
         for (let box of boxes) {
             box.classList.remove('sun__mode-box');

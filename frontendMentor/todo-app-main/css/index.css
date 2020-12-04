@@ -99,9 +99,9 @@ button {
 
 button:focus {
   outline: none;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  letter-spacing: 0.2rem;
+  color: red;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 header {
@@ -256,6 +256,10 @@ header {
   color: #9394a5;
 }
 
+.moon__mode-drag {
+  color: #484b6a;
+}
+
 .sun__mode-body {
   background-color: #e4e5f1;
   color: #161722;
@@ -310,6 +314,10 @@ header {
   font-weight: 400;
 }
 
+.sun__mode-drag {
+  color: #9394a5;
+}
+
 @media screen and (min-width: 830px) {
   .moon__mode-header {
     background-image: url(../images/bg-desktop-dark.jpg);
@@ -339,6 +347,10 @@ header {
           flex: 0 1 auto;
 }
 
+.list__delete {
+  visibility: hidden;
+}
+
 .list__delete > img {
   max-width: 70%;
   vertical-align: -0.2rem;
@@ -363,6 +375,15 @@ header {
 
 .sun__mode-status .items__clear:hover, .sun__mode-status .items__left:hover {
   color: #25273c;
+}
+
+ul li:hover .list__delete {
+  visibility: visible;
+}
+
+.drag {
+  text-align: center;
+  margin-top: 5rem;
 }
 
 .current-stage {
