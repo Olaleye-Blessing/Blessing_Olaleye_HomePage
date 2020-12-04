@@ -14,19 +14,11 @@ let itemsLeft = document.querySelector('.items__left > span');
 
 let itemsLeftValue = itemsLeft.textContent;
 
-let activeParent = document.querySelector('[data-activeLists]');
-
-let completedParent = document.querySelector('[data-completedLists]');
 
 let textTodo = document.querySelector('.text');
 
 let drag = document.querySelector('.drag');
 
-function dragList(event) {
-    
-}
-
-todoLists.addEventListener('pointerdown', dragList);
 
 function enterKey(event) {
     if (event.key == 'Enter') {
@@ -35,21 +27,6 @@ function enterKey(event) {
 }
 
 textTodo.addEventListener('keydown', enterKey);
-
-textTodo.addEventListener('focus', event => {
-    if (!activeParent.hidden || !completedParent.hidden) {
-        let message = document.createElement('div');
-        message.textContent = `Go to all status to add list`;
-         message.classList.add('emptyList');
-         setTimeout(() => {
-            addTodo.append(message);
-            setTimeout(() => {
-                message.remove();
-            }, 1000);
-         }, 1700);
-        textTodo.blur();
-    }
-})
 
 modeSwitcher.addEventListener('click', event => {
     let header = document.getElementsByTagName('header')[0];
@@ -93,9 +70,6 @@ modeSwitcher.addEventListener('click', event => {
         }
 
         for (let status of stage.querySelectorAll('[data-staging]')) {
-            // status.classList.remove('moon__mode-hover');
-            // status.classList.add('sun__mode-hover');
-
             if (status.classList.contains('moon__mode-hover')) {
                 status.classList.remove('moon__mode-hover');
                 status.classList.add('sun__mode-hover');
@@ -203,9 +177,48 @@ function addingTodo(event) {
     </span>`
     }
     todoLists.querySelector('li:last-child').before(li);
+    li.draggable = true;
     todoText.value = "";
     todoText.focus();
     leftItems();
+    li.addEventListener('dragstart', event => {
+        li.classList.add('dragging');
+    })
+    li.addEventListener('dragend', event => {
+        setTimeout(() => {
+            li.classList.remove('dragging');
+        }, 500);
+    })
+}
+
+// container = todoLists
+
+// draggables = [data-list="list"]
+
+todoLists.addEventListener('dragover', event => {
+    event.preventDefault(); // to prevent the do not allow cursor
+    const afterElement = getDragAfterElement(event.clientY);
+    const draggable = document.querySelector('.dragging')
+    if (afterElement == undefined) {
+        todoLists.querySelector('li:last-child').before(draggable);
+    } else {
+        afterElement.before(draggable);
+    }
+})
+
+function getDragAfterElement(yPosMouse) {
+    const draggableElments = [...todoLists.querySelectorAll('[data-list="list"]:not(.dragging)')];
+
+    return draggableElments.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = yPosMouse - box.top - box.height / 2;
+        // console.log(offset);
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child}
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element
 }
 
 addTodo.addEventListener('click', addingTodo);

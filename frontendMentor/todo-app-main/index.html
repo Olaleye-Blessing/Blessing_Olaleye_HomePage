@@ -31,6 +31,7 @@
         </style>
         <link rel="stylesheet" href="css/index.css" />
         <script src="index.js" defer></script>
+        <script src="dragging.js" defer></script>
     </head>
     <body class="moon__mode-body">
         <header class="moon__mode-header">
@@ -62,25 +63,6 @@
 
         <main>
             <ul data-allLists="allLists" id="todoLists">
-                <!-- <li class="box moon__mode-box moon__mode-li" data-list="list">
-                    <input
-                        type="radio"
-                        name=""
-                        id="select"
-                        class="select__input"
-                    />
-                    <label
-                        data-stage=""
-                        for="select"
-                        class="js-label select__label moon__mode-label"
-                    ></label
-                    ><div class="list">
-                        <div class="list__word">lorem20 bsudfoooooo</div>
-                        <div data-stage="delete" class="list__delete"
-                            ><img src="images/icon-cross.svg" alt=""
-                        /></div>
-                    </div>
-                </li> -->
 
                 <li class="box moon__mode-box moon__mode-status moon__mode-li">
                     <div class="items__left"><span>0</span> items left</div>
@@ -88,9 +70,9 @@
                 </li>
             </ul>
 
-            <ul data-activeLists="active" hidden></ul>
+            <!-- <ul data-activeLists="active" hidden></ul>
 
-            <ul data-completedLists="completed" hidden></ul>
+            <ul data-completedLists="completed" hidden></ul> -->
 
             <div class="box moon__mode-box stage moon__mode-stage">
                 <button data-staging="allTodo" class="current-stage">

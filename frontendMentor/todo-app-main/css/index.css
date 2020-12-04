@@ -59,6 +59,7 @@ input[type="text"] {
 }
 
 ul {
+  position: relative;
   list-style: none;
 }
 
@@ -384,6 +385,16 @@ ul li:hover .list__delete {
 .drag {
   text-align: center;
   margin-top: 5rem;
+}
+
+.moon__mode-box[data-list="list"].dragging {
+  opacity: 0.5;
+  background-color: #9da0c3;
+}
+
+.sun__mode-box[data-list="list"].dragging {
+  background-color: #7a7a7a;
+  opacity: 0.5;
 }
 
 .current-stage {
