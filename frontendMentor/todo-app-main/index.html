@@ -15,6 +15,11 @@
         <title>Frontend Mentor | Todo app</title>
 
         <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
         <style>
             .attribution {
                 font-size: 11px;
@@ -79,7 +84,7 @@
 
                 <li class="box moon__mode-box moon__mode-status moon__mode-li">
                     <div class="items__left"><span>0</span> items left</div>
-                    <div class="items__clear">Clear Completed</div>
+                    <button class="items__clear">Clear Completed</button>
                 </li>
             </ul>
 
@@ -88,13 +93,15 @@
             <ul data-completedLists="completed" hidden></ul>
 
             <div class="box moon__mode-box stage moon__mode-stage">
-                <span data-staging="allTodo" class="current-stage">All</span>
-                <span data-staging="activeTodo" class="moon__mode-hover"
-                    >Active</span
-                >
-                <span data-staging="completedTodo" class="moon__mode-hover"
-                    >Completed</span
-                >
+                <button data-staging="allTodo" class="current-stage">
+                    All
+                </button>
+                <button data-staging="activeTodo" class="moon__mode-hover">
+                    Active
+                </button>
+                <button data-staging="completedTodo" class="moon__mode-hover">
+                    Completed
+                </button>
             </div>
             <!-- <section class="statuses">
                 <div class="no-com">6 items left</div>

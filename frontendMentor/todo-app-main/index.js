@@ -82,8 +82,13 @@ modeSwitcher.addEventListener('click', event => {
         }
 
         for (let status of stage.querySelectorAll('[data-staging]')) {
-            status.classList.remove('moon__mode-hover');
-            status.classList.add('sun__mode-hover');
+            // status.classList.remove('moon__mode-hover');
+            // status.classList.add('sun__mode-hover');
+
+            if (status.classList.contains('moon__mode-hover')) {
+                status.classList.remove('moon__mode-hover');
+                status.classList.add('sun__mode-hover');
+            }
         }
 
     } else {
@@ -120,8 +125,12 @@ modeSwitcher.addEventListener('click', event => {
         }
 
         for (let status of stage.querySelectorAll('[data-staging]')) {
-            status.classList.remove('sun__mode-hover');
-            status.classList.add('moon__mode-hover');
+            // status.classList.remove('sun__mode-hover');
+            // status.classList.add('moon__mode-hover');
+            if (status.classList.contains('sun__mode-hover')) {
+                status.classList.remove('sun__mode-hover');
+                status.classList.add('moon__mode-hover');
+            }
         }
 
     }
