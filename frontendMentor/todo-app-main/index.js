@@ -269,18 +269,14 @@ function leftItems() {
 window.addEventListener('load', leftItems);
 
 function stagingList(event) {
-    let allLists = todoLists.querySelectorAll('[data-list]'); 
     let eventTarget = event.target.closest('[data-staging]');
-    // console.log(eventTarget);
+
     if (!eventTarget) {
-        // console.log('no');
         return
     }
     if (eventTarget.classList.contains('current-stage')) {
         return;
     }
-
-
     for (let status of stage.querySelectorAll('[data-staging]')) {
         if (status.classList.contains('current-stage')) {
             status.classList.remove('current-stage');
@@ -306,42 +302,31 @@ function stagingList(event) {
 
     eventTarget.classList.add('current-stage');
 
-
     let eventStage = eventTarget.dataset.staging;
-    switch (eventStage) {
-        case "allTodo":
-            activeParent.innerHTML = "";
-            completedParent.innerHTML = "";
-            todoLists.hidden = false;
-            activeParent.hidden = true;
-            completedParent.hidden = true;
-            break;
-        case "activeTodo":
 
-            // console.log(activeParent);
-            let leftItem = document.querySelectorAll('[data-list="list"]');
-            for (let list of leftItem) {
-                if (!list.classList.contains('completed')) {
-                    let clonedList = list.cloneNode(true);
-                    activeParent.append(clonedList);
-                }
+
+    switch (eventStage) {
+        case 'allTodo':
+            for (let list of document.querySelectorAll('[data-list="list"]')) {
+                list.hidden = false;
             }
-            activeParent.hidden = false;
-            todoLists.hidden = true;
-            completedParent.hidden = true;
             break;
-        case "completedTodo":
-            // console.log(completedParent);
-            let completedItem = document.querySelectorAll('[data-list="list"]');
-            for (let list of completedItem) {
+    
+        case 'activeTodo':
+            for (let list of document.querySelectorAll('[data-list="list"]')) {
+                list.hidden = false;
                 if (list.classList.contains('completed')) {
-                    let clonedList = list.cloneNode(true);
-                    completedParent.append(clonedList);
+                    list.hidden = true;
                 }
             }
-            completedParent.hidden = false;
-            todoLists.hidden = true;
-            activeParent.hidden = true;
+            break;
+        case 'completedTodo':
+            for (let list of document.querySelectorAll('[data-list="list"]')) {
+                list.hidden = false;
+                if (!list.classList.contains('completed')) {
+                    list.hidden = true;
+                }
+            }
             break;
     }
 }
