@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="Authur" content="Olaleye Blessing">
+        <meta name="Description" content="Static Todo List from frontend Mentor">
         <!-- displays site properly based on user's device -->
 
         <link
@@ -34,7 +36,6 @@
         </style>
         <link rel="stylesheet" href="css/index.css" />
         <script src="index.js" defer></script>
-        <script src="dragging.js" defer></script>
     </head>
     <body class="moon__mode-body">
         <header class="moon__mode-header">
@@ -66,16 +67,11 @@
 
         <main>
             <ul data-allLists="allLists" id="todoLists">
-
                 <li class="box moon__mode-box moon__mode-status moon__mode-li">
                     <div class="items__left"><span>0</span> items left</div>
                     <button class="items__clear">Clear Completed</button>
                 </li>
             </ul>
-
-            <!-- <ul data-activeLists="active" hidden></ul>
-
-            <ul data-completedLists="completed" hidden></ul> -->
 
             <div class="box moon__mode-box stage moon__mode-stage">
                 <button data-staging="allTodo" class="current-stage">
@@ -92,33 +88,15 @@
             <div class="drag moon__mode-drag">
                 Drag and drop to reorder list
             </div>
-            <!-- <section class="statuses">
-                <div class="no-com">6 items left</div>
-                <div class="box sun__mode-box status">
-                    <span>All</span>
-                    <span>Active</span>
-                    <span>Completed</span>
-                </div>
-                <div class="clear-com">Clear Completed</div>
-            </section> -->
         </main>
 
         <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Olaleye Blessing</a>.
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by <a href="#">Olaleye Blessing</a>.
         </footer>
-
-        <!-- Add dynamic number -->
-        <!-- items left All Active Completed Clear Completed Drag and drop to reorder
-        list -->
-
-        <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
-        <!-- <img src="images/icon-sun.svg"> -->
-        <!-- <img src="images/icon-moon.svg"> -->
-        <!-- <img src="images/icon-cross.svg"> -->
-        <!-- <img src="images/icon-check.svg"> -->
     </body>
 </html>

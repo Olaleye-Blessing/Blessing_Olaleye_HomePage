@@ -26,19 +26,19 @@ main {
 
 @media screen and (min-width: 600px) {
   main {
-    padding: 5rem calc(7rem + 4vw) 4.5rem;
+    padding: 2rem calc(7rem + 4vw) 4.5rem;
   }
 }
 
 @media screen and (min-width: 830px) {
   main {
-    padding: 5rem calc(20rem + 5vw) 4.5rem;
+    padding: 2rem calc(18rem + 5vw) 4.5rem;
   }
 }
 
 @media screen and (min-width: 1100px) {
   main {
-    padding: 5rem 34rem 4.5rem;
+    padding: 1.7rem calc(30rem + 2vw) 4.5rem;
   }
 }
 
@@ -150,13 +150,13 @@ header {
 
 @media screen and (min-width: 830px) {
   header {
-    padding: 5rem calc(20rem + 5vw) 4.5rem;
+    padding: 5rem calc(18rem + 5vw) 4.5rem;
   }
 }
 
 @media screen and (min-width: 1100px) {
   header {
-    padding: 5rem 34rem 4.5rem;
+    padding: 5rem calc(30rem + 2vw) 4.5rem;
   }
 }
 
