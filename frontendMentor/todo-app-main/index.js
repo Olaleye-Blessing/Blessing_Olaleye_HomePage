@@ -1,6 +1,6 @@
 // -----------------
 
-// variables(line 5) -- Dom variables(line 11) -- functions(line 31) -- events(line 226)
+// variables(line 5) -- Dom variables(line 11) -- functions(line 31) -- events(line 238)
 
 // variables
 
@@ -42,7 +42,7 @@ function addTodo() {
     }
 
     let todoCont = document.createElement("li");
-    todoCont.classList.add("box", "todo-flex", "todo");
+    todoCont.classList.add("box", "todo-flex", "todo", 'adding-list-animation');
     todoCont.tabIndex = 0;
     todoCont.setAttribute("data-complete", "false");
     todoCont.setAttribute('draggable', true);
@@ -84,6 +84,10 @@ function addTodo() {
 
     textTodo.focus();
     itemsLeftFunc();
+
+    setTimeout(() => {
+        todoCont.classList.remove('adding-list-animation');
+    }, 1100);
 
     // 
     // drag events
@@ -143,8 +147,13 @@ function removeList(event) {
     }
 
     let listToRemove = event.target.closest(".todo");
-    listToRemove.remove();
-    itemsLeftFunc();
+    listToRemove.classList.add('remove-list-animation');
+    // listToRemove.remove();
+    // itemsLeftFunc();
+    setTimeout(() => {
+        listToRemove.remove();
+        itemsLeftFunc();
+    }, 2100);
 }
 
 // check list
@@ -216,7 +225,10 @@ function filter(event) {
 function clearCompleted() {
     for (let list of todoListsCont.querySelectorAll('.todo')) {
         if (list.dataset.complete == 'true') {
-            list.remove();
+            list.classList.add('remove-list-animation');
+            setTimeout(() => {
+                list.remove();
+            }, 2100);
         }
     }
 }

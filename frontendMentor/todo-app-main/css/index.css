@@ -98,17 +98,15 @@ header {
   outline: 2px ridge red;
 }
 
-.todo-check, .custom-radio, .hover {
-  -webkit-transition: -webkit-box-shadow 0.2s linear;
-  transition: -webkit-box-shadow 0.2s linear;
-  transition: box-shadow 0.2s linear;
-  transition: box-shadow 0.2s linear, -webkit-box-shadow 0.2s linear;
+* {
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .todo-check:focus, .custom-radio:focus {
   outline: none;
-  -webkit-box-shadow: 0px 0px 12px red, 2px 0px 12px red, 0px 2px 12px red;
-          box-shadow: 0px 0px 12px red, 2px 0px 12px red, 0px 2px 12px red;
+  -webkit-box-shadow: 0px 0px 12px red, 2px 0px 12px red, 0px 2px 12px red, -2px 0px 2px red, 0px -2px 2px red;
+          box-shadow: 0px 0px 12px red, 2px 0px 12px red, 0px 2px 12px red, -2px 0px 2px red, 0px -2px 2px red;
 }
 
 .hover:focus, button:focus {
@@ -121,8 +119,6 @@ header {
 body {
   background-color: #161722;
   color: #fafafa;
-  -webkit-transition: background 0.3s linear, color 0.2s ease-in-out;
-  transition: background 0.3s linear, color 0.2s ease-in-out;
 }
 
 .header {
@@ -187,6 +183,7 @@ input[type="text"] {
 }
 
 .attribution {
+  margin-top: 5rem;
   color: #fafafa;
 }
 
@@ -270,17 +267,11 @@ input[type="text"] {
 }
 
 .sun .todo-check:focus, .sun .custom-radio:focus {
-  outline: none;
   color: red;
-  -webkit-box-shadow: 0px 0px 12px red, 2px 0px 12px red, 0px 2px 12px red;
-          box-shadow: 0px 0px 12px red, 2px 0px 12px red, 0px 2px 12px red;
 }
 
 .sun .hover:focus, .sun button:focus {
-  outline: 1px solid red;
   color: red;
-  -webkit-box-shadow: 0px 0px 6px 3px red;
-          box-shadow: 0px 0px 6px 3px red;
 }
 
 @media screen and (min-width: 800px) {
@@ -290,6 +281,9 @@ input[type="text"] {
   }
   .sun .header {
     background-image: url(../images/bg-desktop-light.jpg);
+  }
+  .attribution {
+    margin-top: 0;
   }
 }
 
@@ -422,14 +416,15 @@ input[type="text"] {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+      -ms-flex-flow: row;
+          flex-flow: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   border-radius: 0;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  position: relative;
 }
 
 .items button {
@@ -450,24 +445,24 @@ input[type="text"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 1rem;
+  background-color: inherit;
+  position: absolute;
+  bottom: -7rem;
+  left: 0;
+  right: 0;
+  height: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+  border-radius: 0.5rem;
 }
 
-@media screen and (max-width: 800px) {
-  .items {
-    position: relative;
-  }
+@media screen and (min-width: 800px) {
   .filter-items {
-    background-color: inherit;
-    position: absolute;
-    bottom: -7rem;
-    left: 0;
-    right: 0;
-    height: 50px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    gap: 2rem;
-    border-radius: 0.5rem;
+    position: relative;
+    bottom: 0;
+    height: inherit;
   }
 }
 
@@ -481,4 +476,81 @@ input[type="text"] {
 
 .completed {
   text-decoration: line-through;
+}
+
+.adding-list-animation {
+  -webkit-animation: adding-list 1s ease-in-out;
+          animation: adding-list 1s ease-in-out;
+}
+
+.remove-list-animation {
+  animation: remove-list 2s ease-in-out forwards reverse;
+}
+
+@-webkit-keyframes remove-list {
+  0% {
+    opacity: 0.9;
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes remove-list {
+  0% {
+    opacity: 0.9;
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes adding-list {
+  0% {
+    opacity: 0.1;
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
+  }
+  40% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes adding-list {
+  0% {
+    opacity: 0.1;
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
+  }
+  40% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
