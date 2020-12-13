@@ -3,8 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="Authur" content="Olaleye Blessing">
-        <meta name="Description" content="Static Todo List from frontend Mentor">
+        <meta name="Authur" content="Olaleye Blessing" />
+        <meta
+            name="Description"
+            content="Static Todo List from frontend Mentor"
+        />
         <!-- displays site properly based on user's device -->
 
         <link
@@ -32,62 +35,82 @@
             .attribution a {
                 color: hsl(228, 45%, 44%);
                 text-decoration: none;
+                display: inline-block;
+                padding: 4px 5px;
             }
         </style>
         <link rel="stylesheet" href="css/index.css" />
         <script src="index.js" defer></script>
     </head>
-    <body class="moon__mode-body">
-        <header class="moon__mode-header">
+    <body class="">
+        <header class="header">
             <div class="header__heading">
                 <h2 class="header__head">TODO</h2>
-                <div>
+                <div aria-labelledby="switchMode">
                     <img
-                        id="modeSwitch"
+                        tabindex="0"
+                        id="switchMode"
                         src="images/icon-sun.svg"
-                        alt="sun-mode icon"
+                        alt="sun-switch icon"
                     />
                 </div>
-            </div>
-            <div class="box moon__mode-box">
-                <input type="radio" name="" id="select" class="select__input" />
-                <label
-                    for="select"
-                    class="add js-label select__label moon__mode-label"
-                ></label>
-                <input
-                    type="text"
-                    name="text"
-                    id="addText"
-                    placeholder="Create a todo..."
-                    class="text"
-                />
             </div>
         </header>
 
         <main>
-            <ul data-allLists="allLists" id="todoLists">
-                <li class="box moon__mode-box moon__mode-status moon__mode-li">
-                    <div class="items__left"><span>0</span> items left</div>
-                    <button class="items__clear">Clear Completed</button>
-                </li>
+            <div class="box flex-row">
+                <div
+                    id="addTodo"
+                    tabindex="0"
+                    class="custom-radio"
+                    role="button"
+                    aria-labelledby="newTodo"
+                ></div>
+                <input
+                    class="text"
+                    type="text"
+                    id="newTodo"
+                    aria-label="Create a new Todo"
+                    placeholder="Create a new Todo..."
+                />
+            </div>
+            <ul id="todoLists">
+                <!-- ------------------ -->
+                <!-- all lists -->
+                <!-- ------------------ -->
             </ul>
-
-            <div class="box moon__mode-box stage moon__mode-stage">
-                <button data-staging="allTodo" class="current-stage">
-                    All
+            <section class="items box">
+                <div class="items-left hover" aria-label="active todo lists" aria-live="assertive" aria-atomic="true"><span>0</span> items left</div>
+                <div class="filter-items" id="filter">
+                    <button
+                        data-status="All"
+                        class="hover active"
+                        aria-label="All todo"
+                    >
+                        All
+                    </button>
+                    <button
+                        data-status="Active"
+                        class="hover"
+                        aria-label="list of active todo"
+                    >
+                        Active
+                    </button>
+                    <button
+                        data-status="Completed"
+                        class="hover"
+                        aria-label="list of completed todo"
+                    >
+                        Completed
+                    </button>
+                </div>
+                <button
+                    class="clear-items hover"
+                    aria-label="clear completed todo"
+                >
+                    clear completed
                 </button>
-                <button data-staging="activeTodo" class="moon__mode-hover">
-                    Active
-                </button>
-                <button data-staging="completedTodo" class="moon__mode-hover">
-                    Completed
-                </button>
-            </div>
-
-            <div class="drag moon__mode-drag">
-                Drag and drop to reorder list
-            </div>
+            </section>
         </main>
 
         <footer class="attribution">
@@ -96,7 +119,11 @@
                 href="https://www.frontendmentor.io?ref=challenge"
                 target="_blank"
                 >Frontend Mentor</a
-            >. Coded by <a href="#">Olaleye Blessing</a>.
+            >. Coded by <a href="https://github.com/Olaleye-Blessing">Olaleye Blessing</a>.
         </footer>
     </body>
 </html>
+
+<!-- 
+    
+ -->

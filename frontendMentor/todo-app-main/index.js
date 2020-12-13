@@ -1,337 +1,211 @@
-let modeSwitcher = document.getElementById("modeSwitch");
+// -----------------
+
+// variables(line 5) -- Dom variables(line 11) -- functions(line 31) -- events(line 226)
+
+// variables
+
+let listId = 0; // this is use to give each label and input different for and id (attribue)
+
+let itemsLeft = 0;
+
+// Dom variables
 
 let body = document.body;
 
-let addTodo = document.querySelector(".add");
+let modeSwitcher = document.getElementById("switchMode");
 
-let todoLists = document.getElementById("todoLists");
+let textTodo = document.getElementById("newTodo");
 
-let stage = document.querySelector(".stage");
+let addTodoBtn = document.getElementById("addTodo");
 
-let clearCompleted = document.querySelector(".items__clear");
+let todoListsCont = document.getElementById("todoLists");
 
-let itemsLeft = document.querySelector(".items__left > span");
+let filterItems = document.querySelector(".filter-items");
 
-let itemsLeftValue = itemsLeft.textContent;
+let clearCompletedBtn = document.querySelector('.clear-items');
 
-let textTodo = document.querySelector(".text");
+let itemsLeftSpan = document.querySelector('.items-left span');
 
-let drag = document.querySelector(".drag");
+// ---------------------
 
-function enterKey(event) {
-    if (event.key == "Enter") {
-        addingTodo();
-    }
+// functions
+
+function itemsLeftFunc() {
+    itemsLeft = todoListsCont.querySelectorAll('[data-complete="false"]').length;
+    itemsLeftSpan.textContent = itemsLeft;
 }
 
-textTodo.addEventListener("keydown", enterKey);
-
-modeSwitcher.addEventListener("click", (event) => {
-    let header = document.getElementsByTagName("header")[0];
-    let boxes = document.querySelectorAll(".box");
-    let jsLabels = document.querySelectorAll(".js-label");
-    let stage = document.querySelector(".stage");
-    if (body.classList.contains("moon__mode-body")) {
-        modeSwitcher.src = "images/icon-moon.svg";
-        modeSwitcher.alt = "moon-mode icon";
-
-        body.classList.remove("moon__mode-body");
-        body.classList.add("sun__mode-body");
-
-        header.classList.remove("moon__mode-header");
-        header.classList.add("sun__mode-header");
-
-        stage.classList.remove("moon__mode-stage");
-        stage.classList.add("sun__mode-stage");
-
-        drag.classList.remove("moon__mode-drag");
-        drag.classList.add("sun__mode-drag");
-
-        for (let box of boxes) {
-            box.classList.remove("moon__mode-box");
-            box.classList.add("sun__mode-box");
-            if (box.classList.contains("moon__mode-li")) {
-                box.classList.remove("moon__mode-li");
-                box.classList.add("sun__mode-li");
-            }
-            if (box.classList.contains("moon__mode-status")) {
-                box.classList.remove("moon__mode-status");
-                box.classList.add("sun__mode-status");
-            }
-        }
-
-        for (let label of jsLabels) {
-            if (label.classList.contains("moon__mode-label")) {
-                label.classList.remove("moon__mode-label");
-                label.classList.add("sun__mode-label");
-            }
-        }
-
-        for (let status of stage.querySelectorAll("[data-staging]")) {
-            if (status.classList.contains("moon__mode-hover")) {
-                status.classList.remove("moon__mode-hover");
-                status.classList.add("sun__mode-hover");
-            }
-        }
-    } else {
-        modeSwitcher.src = "images/icon-sun.svg";
-        modeSwitcher.alt = "sun-mode icon";
-
-        body.classList.add("moon__mode-body");
-        body.classList.remove("sun__mode-body");
-
-        header.classList.add("moon__mode-header");
-        header.classList.remove("sun__mode-header");
-
-        stage.classList.add("moon__mode-stage");
-        stage.classList.remove("sun__mode-stage");
-
-        drag.classList.add("moon__mode-drag");
-        drag.classList.remove("sun__mode-drag");
-
-        for (let box of boxes) {
-            box.classList.remove("sun__mode-box");
-            box.classList.add("moon__mode-box");
-            if (box.classList.contains("sun__mode-li")) {
-                box.classList.remove("sun__mode-li");
-                box.classList.add("moon__mode-li");
-            }
-            if (box.classList.contains("sun__mode-status")) {
-                box.classList.remove("sun__mode-status");
-                box.classList.add("moon__mode-status");
-            }
-        }
-
-        for (let label of jsLabels) {
-            if (label.classList.contains("sun__mode-label")) {
-                label.classList.remove("sun__mode-label");
-                label.classList.add("moon__mode-label");
-            }
-        }
-
-        for (let status of stage.querySelectorAll("[data-staging]")) {
-            if (status.classList.contains("sun__mode-hover")) {
-                status.classList.remove("sun__mode-hover");
-                status.classList.add("moon__mode-hover");
-            }
-        }
-    }
-});
-
-function addingTodo(event) {
-    let todoText = document.getElementById("addText");
-    let todoTextValue = todoText.value;
-
-    if (todoTextValue.trim() == "") {
-        let message = document.createElement("div");
-        message.textContent = `Can't make empty list`;
-        message.classList.add("emptyList");
-        addTodo.append(message);
-        todoText.focus();
-        setTimeout(() => {
-            message.remove();
-        }, 1500);
+// add new list
+function addTodo() {
+    if (textTodo.value == "") {
         return;
     }
 
-    let li = document.createElement("li");
-    if (body.classList.contains("moon__mode-body")) {
-        li.classList.add("box", "moon__mode-box", "moon__mode-li");
-        li.setAttribute("data-list", "list");
-        li.innerHTML = `<input
-        type="radio"
-        name=""
-        id="select"
-        class="select__input"
-    />
-    <label
-        for="select"
-        class="js-label select__label moon__mode-label" data-stage=""
-    ></label
-    ><span class="list">
-        <span class="list__word">${todoTextValue}</span>
-        <span class="list__delete"><img src="images/icon-cross.svg" alt=""></span>
-    </span>`;
-    } else {
-        li.classList.add("box", "sun__mode-box", "sun__mode-li");
-        li.setAttribute("data-list", "list");
-        li.innerHTML = `<input
-        type="radio"
-        name=""
-        id="select"
-        class="select__input"
-    />
-    <label
-        for="select"
-        class="js-label select__label sun__mode-label" data-stage=""
-    ></label
-    ><span class="list">
-        <span class="list__word">${todoTextValue}</span>
-        <span class="list__delete"><img src="images/icon-cross.svg" alt=""></span>
-    </span>`;
-    }
-    todoLists.querySelector("li:last-child").before(li);
-    li.draggable = true;
-    todoText.value = "";
-    todoText.focus();
-    leftItems();
-    li.addEventListener("dragstart", (event) => {
-        li.classList.add("dragging");
-    });
-    li.addEventListener("dragend", (event) => {
-        setTimeout(() => {
-            li.classList.remove("dragging");
-        }, 500);
-    });
+    let todoCont = document.createElement("li");
+    todoCont.classList.add("box", "todo-flex", "todo");
+    todoCont.tabIndex = 0;
+    todoCont.setAttribute("data-complete", "false");
+    todoCont.setAttribute('draggable', true);
+
+    let checkCont = document.createElement("div");
+    checkCont.classList.add("todo__check-cont");
+
+    let input = document.createElement("input");
+    input.setAttribute("type", "checkbox");
+    input.setAttribute(
+        "aria-label",
+        "check and uncheck to complete and uncomplete todo list"
+    );
+    input.id = `${textTodo.value.substring(0, 1)}${listId}`;
+
+    let inputLabel = document.createElement("label");
+    inputLabel.classList.add("todo-check");
+    inputLabel.tabIndex = 0;
+    inputLabel.setAttribute("aria-hidden", true);
+    inputLabel.setAttribute("for", input.id);
+
+    let todoContent = document.createElement("div");
+    todoContent.classList.add("todo__text");
+    todoContent.textContent = textTodo.value;
+
+    let cancelTodoBtn = document.createElement("button");
+    cancelTodoBtn.classList.add("todo__button");
+    cancelTodoBtn.setAttribute("aria-label", "cancel todo list");
+
+    checkCont.append(input);
+    checkCont.append(inputLabel);
+    todoCont.append(checkCont);
+    todoCont.append(todoContent);
+    todoCont.append(cancelTodoBtn);
+    todoListsCont.append(todoCont);
+
+    listId += 1;
+    textTodo.value = "";
+
+    textTodo.focus();
+    itemsLeftFunc();
+
+    // 
+    // drag events
+    todoCont.addEventListener('dragstart', event => {
+        todoCont.classList.add('dragging');
+    })
+
+    todoCont.addEventListener('dragend', event => {
+        todoCont.classList.remove('dragging');
+    })
 }
 
-// container = todoLists
-
-// draggables = [data-list="list"]
-
-todoLists.addEventListener("dragover", (event) => {
-    event.preventDefault(); // to prevent the do not allow cursor
-    const afterElement = getDragAfterElement(event.clientY);
-    const draggable = document.querySelector(".dragging");
-    if (afterElement == undefined) {
-        todoLists.querySelector("li:last-child").before(draggable);
+todoListsCont.addEventListener('dragover', event => {
+    event.preventDefault();
+    const afterElement = getDragAfterEleemnt(event.clientY);
+    const draggable = document.querySelector('.dragging');
+    if (!afterElement) {
+        todoListsCont.append(draggable);
     } else {
         afterElement.before(draggable);
-    }
-});
+    }    
+})
 
-function getDragAfterElement(yPosMouse) {
-    const draggableElments = [
-        ...todoLists.querySelectorAll('[data-list="list"]:not(.dragging)'),
-    ];
-
-    return draggableElments.reduce(
-        (closest, child) => {
-            const box = child.getBoundingClientRect();
-            const offset = yPosMouse - box.top - box.height / 2;
-            if (offset < 0 && offset > closest.offset) {
-                return { offset: offset, element: child };
-            } else {
-                return closest;
-            }
-        },
-        { offset: Number.NEGATIVE_INFINITY }
-    ).element;
-}
-
-addTodo.addEventListener("click", addingTodo);
-
-function doneList(event) {
-    let eventLabel = event.target.closest("[data-stage]");
-    if (!eventLabel) {
-        return;
-    }
-    if (eventLabel.dataset.stage == "completed") {
-        return;
-    }
-    eventLabel.setAttribute("data-stage", "completed");
-
-    let parentComple = event.target.closest(".box");
-    parentComple.classList.add("completed");
-    itemsLeftValue--;
-    itemsLeft.textContent = itemsLeftValue;
-}
-
-todoLists.addEventListener("click", doneList);
-
-function cancelList(event) {
-    let cancelBtn = event.target.closest(".list__delete");
-    if (!cancelBtn) {
-        return;
-    }
-    let parentLi = event.target.closest(".box");
-    if (parentLi.querySelector(".js-label").dataset.stage == "") {
-        itemsLeftValue--;
-        itemsLeft.textContent = itemsLeftValue;
-    }
-    parentLi.remove();
-}
-
-clearCompleted.addEventListener("click", (event) => {
-    let allCompleted = document.querySelectorAll(".completed");
-    if (!allCompleted) {
-        return;
-    }
-    for (let completed of allCompleted) {
-        completed.remove();
-    }
-});
-
-todoLists.addEventListener("click", cancelList);
-
-function leftItems() {
-    let leftItem = document.querySelectorAll('[data-list="list"]');
-    let remainingItem = 0;
-    for (let list of leftItem) {
-        if (!list.classList.contains("completed")) {
-            remainingItem++;
-        }
-    }
-    itemsLeftValue = remainingItem;
-    itemsLeft.textContent = itemsLeftValue;
-}
-
-window.addEventListener("load", leftItems);
-
-function stagingList(event) {
-    let eventTarget = event.target.closest("[data-staging]");
-
-    if (!eventTarget) {
-        return;
-    }
-    if (eventTarget.classList.contains("current-stage")) {
-        return;
-    }
-    for (let status of stage.querySelectorAll("[data-staging]")) {
-        if (status.classList.contains("current-stage")) {
-            status.classList.remove("current-stage");
-        }
-    }
-
-    for (let status of stage.querySelectorAll("[data-staging]")) {
-        if (body.classList.contains("moon__mode-body")) {
-            status.classList.add("moon__mode-hover");
-            status.classList.remove("sun__mode-hover");
+function getDragAfterEleemnt(offsetY) {
+    const draggableElements = [...todoListsCont.querySelectorAll('.todo:not(.dragging)')];
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = offsetY - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child }
         } else {
-            status.classList.add("sun__mode-hover");
-            status.classList.remove("moon__mode-hover");
+            return closest;
         }
-    }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
 
-    if (eventTarget.classList.contains("moon__mode-hover")) {
-        eventTarget.classList.remove("moon__mode-hover");
+// keyboard accessiblity for adding new list
+function keyboardNewTodo(event) {
+    if (event.key == "Enter") {
+        addTodo();
+    }
+}
+
+function swithingMode() {
+    body.classList.toggle("sun");
+    if (body.classList.contains("sun")) {
+        modeSwitcher.src = "images/icon-moon.svg";
     } else {
-        eventTarget.classList.remove("sun__mode-hover");
+        modeSwitcher.src = "images/icon-sun.svg";
+    }
+}
+
+// this works for both click and focus(Enter Key) cause of the sematic used(button)
+function removeList(event) {
+    if (event.target.className != "todo__button") {
+        return;
     }
 
-    eventTarget.classList.add("current-stage");
+    let listToRemove = event.target.closest(".todo");
+    listToRemove.remove();
+    itemsLeftFunc();
+}
 
-    let eventStage = eventTarget.dataset.staging;
+// check list
+function checkEl(event, element) {
+    let inputElement = element.previousElementSibling;
+    let parentTodo = event.target.closest(".todo");
 
-    switch (eventStage) {
-        case "allTodo":
-            for (let list of document.querySelectorAll('[data-list="list"]')) {
-                list.hidden = false;
-            }
-            break;
+    if (inputElement.checked) {
+        parentTodo.classList.remove("completed");
+        parentTodo.setAttribute("data-complete", "false");
+    } else {
+        parentTodo.classList.add("completed");
+        parentTodo.setAttribute("data-complete", "true");
+    }
+    itemsLeftFunc();
+}
 
-        case "activeTodo":
-            for (let list of document.querySelectorAll('[data-list="list"]')) {
-                list.hidden = false;
-                if (list.classList.contains("completed")) {
+function checkList(event) {
+    let targetLabel = event.target.closest(".todo-check");
+    if (!targetLabel) {
+        return;
+    }
+    checkEl(event, targetLabel);
+}
+
+// filter items based on active/completed
+function filter(event) {
+    let targetBtn = event.target.closest("button");
+    if (!targetBtn) return;
+
+    if (targetBtn.classList.contains("active")) return;
+
+    let btnStatus = targetBtn.dataset.status;
+
+    filterItems.querySelectorAll("button").forEach((button) => {
+        button.classList.remove("active");
+        if (button == targetBtn) {
+            button.classList.add("active");
+        }
+    });
+
+    let allLists = todoListsCont.querySelectorAll(".todo");
+
+    for (let list of allLists) {
+        list.classList.add("todo-flex");
+        list.hidden = false;
+    }
+    switch (btnStatus) {
+        case "Active":
+            for (let list of allLists) {
+                if (list.dataset.complete == "true") {
+                    list.classList.remove("todo-flex");
                     list.hidden = true;
                 }
             }
             break;
-        case "completedTodo":
-            for (let list of document.querySelectorAll('[data-list="list"]')) {
-                list.hidden = false;
-                if (!list.classList.contains("completed")) {
+
+        case "Completed":
+            for (let list of allLists) {
+                if (list.dataset.complete == "false") {
+                    list.classList.remove("todo-flex");
                     list.hidden = true;
                 }
             }
@@ -339,4 +213,56 @@ function stagingList(event) {
     }
 }
 
-stage.addEventListener("click", stagingList);
+function clearCompleted() {
+    for (let list of todoListsCont.querySelectorAll('.todo')) {
+        if (list.dataset.complete == 'true') {
+            list.remove();
+        }
+    }
+}
+
+// -------------------------
+
+// Events
+
+modeSwitcher.onclick = function (event) {
+    swithingMode();
+};
+
+modeSwitcher.onkeydown = function (event) {
+    if (event.key == "Enter" || event.key == " ") {
+        swithingMode();
+    }
+};
+
+textTodo.addEventListener("keydown", keyboardNewTodo);
+
+addTodoBtn.addEventListener("click", addTodo);
+
+addTodoBtn.addEventListener("keydown", keyboardNewTodo);
+
+todoListsCont.addEventListener("click", removeList);
+
+todoListsCont.addEventListener("click", checkList);
+
+filterItems.addEventListener("click", filter);
+
+clearCompletedBtn.addEventListener('click', clearCompleted);
+
+// keyboard to check and uncheck list
+todoListsCont.addEventListener('keydown', event => {
+    if (!((event.key == ' ' || event.key == 'Enter') && event.target.closest('.todo-check'))) {
+        return;
+    }
+    let chackLabel = event.target.closest('.todo-check');
+    if (chackLabel.previousElementSibling.checked) {
+        chackLabel.previousElementSibling.checked = false;
+        event.target.closest('.todo').setAttribute("data-complete", "false");
+        event.target.closest('.todo').classList.remove('completed');
+    } else {
+        chackLabel.previousElementSibling.checked = true;
+        event.target.closest('.todo').setAttribute("data-complete", "true");
+        event.target.closest('.todo').classList.add('completed');
+    }
+    itemsLeftFunc();
+})
