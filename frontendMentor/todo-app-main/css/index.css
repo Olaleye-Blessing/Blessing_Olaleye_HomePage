@@ -339,18 +339,10 @@ input[type="text"] {
   border-right-color: #c058f3;
 }
 
-.todo:hover .todo__button {
-  background-image: url(../images/icon-cross.svg);
-}
-
 .todo:focus {
   -webkit-box-shadow: 0px 0px 3px 2px red;
           box-shadow: 0px 0px 3px 2px red;
   outline: none;
-}
-
-.todo:focus .todo__button {
-  background-image: url(../images/icon-cross.svg);
 }
 
 .todo__button {
@@ -365,14 +357,26 @@ input[type="text"] {
   background-repeat: no-repeat;
   background-size: 70%;
   background-position: center;
+  background-image: url(../images/icon-cross.svg);
 }
 
 .todo__button:hover {
   cursor: pointer;
 }
 
-.todo__button:focus {
-  background-image: url(../images/icon-cross.svg);
+@media screen and (min-width: 1000px) {
+  .todo:focus .todo__button {
+    background-image: url(../images/icon-cross.svg);
+  }
+  .todo:hover .todo__button {
+    background-image: url(../images/icon-cross.svg);
+  }
+  .todo__button {
+    background-image: none;
+  }
+  .todo__button:focus {
+    background-image: url(../images/icon-cross.svg);
+  }
 }
 
 .flex-row {
