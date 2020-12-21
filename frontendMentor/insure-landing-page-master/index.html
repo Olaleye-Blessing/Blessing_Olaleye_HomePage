@@ -1,65 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Insure landing page</title>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-  <link rel="stylesheet" href="css/index.css">
-  <script src="index.js" defer></script>
-</head>
-<body>
-  <header class="header">
-    <nav class="nav">
-      <div class="nav__logo"><img src="images/logo.svg" alt="logo image"></div>
-      <button class="nav__toggle"></button>
-      <ul>
-        <li><a class="link" href="#">HOW WE WORK</a></li>
-        <li><a class="link" href="#">BLOG</a></li>
-        <li><a class="link" href="#">ACCOUNT</a></li>
-        <li class="active"><a class="link" href="#">VIEW PLANS</a></li>
-      </ul>
-    </nav>
-    <section>
-      <div class="header__bg">
-      </div>
-      <section class="header__head">
-        <h1>Humanizing your insurance.</h1>
-        <p>Get your life insurance coverage easier and faster. We blend our expertise 
-          and technology to help you find the plan that’s right for you. Ensure you 
-          and your loved ones are protected.</p>
-        <a href="#" class="white-link">VIEW PLANS</a>
-      </section>
-    </section>
+        <title>Frontend Mentor | Insure landing page</title>
 
-  </header>
-  
-  <main>
-    <section class="cathegory">
-      <header><h1>We're Are different</h1></header>
-      <div></div>
-      <div></div>
-      <div></div>
-    </section>
-    <section class="work"></section>
-  </main>
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+                font-size: 1.6rem;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <nav>
+            <div class="width nav-flex">
+                <div class="nav__logo">
+                    <img src="images/logo.svg" alt="Home-logo" />
+                </div>
+                <button class="nav__toggle"></button>
+                <ul class="nav__links">
+                    <li><a href="#">HOW WE WORK</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">ACCOUNT</a></li>
+                    <li><a href="#" class="active">VIEW PLAN</a></li>
+                </ul>
+            </div>
+        </nav>
 
+        <header>
+            <div class="width">
+                <div class="header__bg"></div>
+                <div class="header__group">
+                    <h1>Humanizing your insurance</h1>
+                    <p>
+                        Get your life insurance coverage easier and faster.We
+                        blend our expertise and technology to help you find the
+                        plan that's right for you. Ensure you and your loved
+                        ones are protected
+                    </p>
+                    <a href="#" class="white-link">VIEW PLANS</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="width negative-margin">
+                <h2 class="cathegories__head">We’re different</h2>
+                <section class="cathegories">
+                    <section class="cathegory">
+                        <figure>
+                            <img
+                                src="images/icon-snappy-process.svg"
+                                alt="Snappy Process icon"
+                            />
+                        </figure>
+                        <h3>Snappy Process</h3>
+                        <p>
+                            Our application process can be completed in munites,
+                            not hours. Don't get stuck filling tedious forms.
+                        </p>
+                    </section>
+                    <section class="cathegory">
+                        <figure>
+                            <img
+                                src="images/icon-affordable-prices.svg"
+                                alt="Affordable Prices icon"
+                            />
+                        </figure>
+                        <h3>Affordable Prices</h3>
+                        <p>
+                            We don’t want you worrying about high monthly costs.
+                            Our prices may be low, but we still offer the best
+                            coverage possible.
+                        </p>
+                    </section>
+                    <section class="cathegory">
+                        <figure>
+                            <img
+                                src="images/icon-people-first.svg"
+                                alt="People First icon"
+                            />
+                        </figure>
+                        <h3>People First</h3>
+                        <p>
+                            Our plans aren’t full of conditions and clauses to
+                            prevent payouts. We make sure you’re covered when
+                            you need it.
+                        </p>
+                    </section>
+                </section>
+
+                <section class="work">
+                    <h2>Find out more about our work</h2>
+                    <div><a href="#" class="white-link">HOW WE WORK</a></div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <div class="width">
+                <section class="footer__first">
+                    <div class="footer__img">
+                        <img src="images/logo.svg" alt="logo image" />
+                    </div>
+                    <ul class="footer__links-img">
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="images/icon-facebook.svg"
+                                    alt="facebook icon"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="images/icon-twitter.svg"
+                                    alt="twitter icon"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="images/icon-pinterest.svg"
+                                    alt="pinterest icon"
+                            /></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><img
+                                    src="images/icon-instagram.svg"
+                                    alt="instagram icon"
+                            /></a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="footer__second">
+                    <div class="footer__links">
+                        <h4>OUR COMPANY</h4>
+                        <ul>
+                            <li><a href="#">HOW WE WORK</a></li>
+                            <li><a href="#">WHY INSURE?</a></li>
+                            <li><a href="#">VIEW PLANS</a></li>
+                            <li><a href="#">REVIEWS</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__links">
+                        <h4>HELP ME</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">TERMS OF USE</a></li>
+                            <li><a href="#">PRIVACY POLICY</a></li>
+                            <li><a href="#">COOKIES</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__links">
+                        <h4>CONTACT</h4>
+                        <ul>
+                            <li><a href="#">SALES</a></li>
+                            <li><a href="#">SUPPORT</a></li>
+                            <li><a href="#">LIVE CHAT</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__links">
+                        <h4>OTHERS</h4>
+                        <ul>
+                            <li><a href="#">CAREERS</a></li>
+                            <li><a href="#">PRESS</a></li>
+                            <li><a href="#">LICENSES</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <div class="attribution">
+                  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                  Coded by <a href="#">Olaleye Blessing</a>.
+                </div>
+            </div>
+        </footer>
+
+        <!-- 
   View plans
 
   We’re different
 
   Snappy Process
 
-  Our application process can be completed in minutes, not hours. Don’t get 
-  stuck filling in tedious forms.
+  
 
   Affordable Prices
 
@@ -71,7 +215,7 @@
   Our plans aren’t full of conditions and clauses to prevent payouts. We make 
   sure you’re covered when you need it.
 
-  Find out more about how we work
+  
 
   How we work
 
@@ -106,5 +250,38 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
-</body>
+
+   -->
+    </body>
 </html>
+
+<!-- @keyframes navOpen {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.3;
+    }
+    60% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+} -->
+
+<!-- .width {
+    @include width;
+}
+
+@media screen and (min-width: 850px) {
+    .width {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+    animation: navOpen 2s linear;
+} -->
