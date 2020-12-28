@@ -221,13 +221,17 @@ header {
 
 .slide:not(.active-slide) {
   visibility: hidden;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
 }
 
 .slide.active-slide {
   z-index: 80;
   opacity: 1;
-  -webkit-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
+  -webkit-transition: all 2.5s linear;
+  transition: all 2.5s linear;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
 }
 
 .slide-1 {
