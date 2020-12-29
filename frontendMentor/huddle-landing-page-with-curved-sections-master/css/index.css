@@ -451,6 +451,7 @@ main {
   padding-bottom: 4rem;
   width: 100%;
   gap: 2rem;
+  gap: 20px;
 }
 
 .footer form div {
@@ -513,7 +514,7 @@ main {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  gap: 2rem;
+  gap: 20px !important;
   margin-bottom: 2rem;
 }
 
