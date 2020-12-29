@@ -22,3 +22,5 @@
 *.scss.map
 
 scss/
+
+external__images/
