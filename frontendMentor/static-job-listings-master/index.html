@@ -9,6 +9,8 @@
   <title>Frontend Mentor | Job Listings</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
   <script src="index.js" defer></script>
   <style>
@@ -17,179 +19,548 @@
   </style>
 </head>
 <body>
+  <div class="background">
+    <!-- top background -->
+  </div>
+
+  <main>
+    <!-- <form role="search"> -->
+      <!--  -->
+    <!-- </form> -->
+    <div class="selection width">
+      <div class="filters">
+        <div class="filter">Frontend <button class="cancel-btn"></button></div>
+        <div class="filter">Backend <button class="cancel-btn"></button></div>
+      </div>
+      <div class="clear-cont">
+        <button class="clear-btn">Clear</button>
+      </div>
+    </div>
+    <ul class="parent-container width">
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/photosnap.svg" alt="photosnap icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Photosnap</div>
+              <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p>
+            </div>
+            <div>
+              <a href="#">Senior Frontend Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>1d ago</p>
+              <p class="list__dot">Full time</p>
+              <p class="list__dot">USA only</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="frontend">Frontend</button>
+          <button data-level="senior">Senior</button>
+          <button data-languages="html">HTML</button>
+          <button data-languages="css">CSS</button>
+          <button data-languages="javascript">JavaScript</button>
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/manage.svg" alt="manage icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Manage</div>
+              <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p>
+            </div>
+            <div>
+              <a href="#">Fullstack Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>1d ago</p>
+              <p class="list__dot">Part time</p>
+              <p class="list__dot">Remote</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="fullstack">Fullstack</button>
+          <button data-level="midweight">Midweight</button>
+          <button data-languages="python">Python</button>
+          <button data-languages="react">React</button>
+          <!-- <button data-languages="">JAVASCRIPT</button> -->
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/account.svg" alt="account-icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Account</div>
+              <p class="cyan-bg">NEW!</p>
+              <!-- <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Junior Frontend Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>2d ago</p>
+              <p class="list__dot">Part time</p>
+              <p class="list__dot">USA only</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="frontend">Frontend</button>
+          <button data-level="junior">Junior</button>
+          <button data-languages="react">React</button>
+          <button data-languages="sass">Sass</button>
+          <button data-languages="javascript">Javascript</button>
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/myhome.svg" alt="myhome icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>MyHome</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Junior Frontend Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>5d ago</p>
+              <p class="list__dot">Contract</p>
+              <p class="list__dot">USA only</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="frontend">Frontend</button>
+          <button data-level="junior">Junior</button>
+          <button data-languages="css">CSS</button>
+          <button data-languages="javaScript">JavaScript</button>
+          <!-- <button data-languages="">JAVASCRIPT</button> -->
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/loop-studios.svg" alt="loop-studio icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Loop Studios</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Software Engineer</a>
+            </div>
+            <div class="list__zone">
+              <p>1week ago</p>
+              <p class="list__dot">Full time</p>
+              <p class="list__dot">Worldwide</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="fullstack">Fullstack</button>
+          <button data-level="midweight">Midweight</button>
+          <button data-languages="javascript">Javascript</button>
+          <button data-languages="sass">Sass</button>
+          <button data-languages="ruby">Ruby</button>
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/faceit.svg" alt="faceit icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>FaceIt</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Junior Backend Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>2w ago</p>
+              <p class="list__dot">Full time</p>
+              <p class="list__dot">UK only</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="backend">Backend</button>
+          <button data-level="junior">Junior</button>
+          <button data-languages="ruby">Ruby</button>
+          <button data-languages="ror">RoR</button>
+          <!-- <button data-languages="">JAVASCRIPT</button> -->
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/shortly.svg" alt="shortly-icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Shortly</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Junior Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>2w ago</p>
+              <p class="list__dot">Full time</p>
+              <p class="list__dot">Worldwide</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="frontend">Frontend</button>
+          <button data-level="junior">Junior</button>
+          <button data-languages="html">HTML</button>
+          <button data-languages="sass">Sass</button>
+          <button data-languages="javascript">JavaScript</button>
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/insure.svg" alt="insure-icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Insure</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Junior Frontend Developer</a>
+            </div>
+            <div class="list__zone">
+              <p>2w ago</p>
+              <p class="list__dot">Full time</p>
+              <p class="list__dot">USA only</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="frontend">Frontend</button>
+          <button data-level="junior">Junior</button>
+          <button data-languages="vue">Vue</button>
+          <button data-languages="javascript">Javascript</button>
+          <button data-languages="sass">Sass</button>
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/eyecam-co.svg" alt="eyecam-co icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>Eyecam Co.</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Fullstack Engineer</a>
+            </div>
+            <div class="list__zone">
+              <p>3w ago</p>
+              <p class="list__dot">Full time</p>
+              <p class="list__dot">Worldwide</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="fullstack">Fullstack</button>
+          <button data-level="midweight">Midweight</button>
+          <button data-languages="javascript">JavaScript</button>
+          <button data-languages="django">Django</button>
+          <button data-languages="python">Python</button>
+        </div>
+      </li>
+      <li class="list">
+        <div class="list__detail">
+          <figure class="list__image-cont">
+            <img src="images/the-air-filter-company.svg" alt="the-air-filter-company icon">
+          </figure>
+          <div class="list__states">
+            <div class="list__state">
+              <div>The Air Filter Company</div>
+              <!-- <p class="cyan-bg">NEW!</p>
+              <p class="black-bg">FEATURED</p> -->
+            </div>
+            <div>
+              <a href="#">Front-end Dev</a>
+            </div>
+            <div class="list__zone">
+              <p>1mo ago</p>
+              <p class="list__dot">Part time</p>
+              <p class="list__dot">Worldwide</p>
+            </div>
+          </div>
+        </div>
+        <div class="list__roles">
+          <!-- roles -->
+          <button data-role="frontend">Frontend</button>
+          <button data-level="junior">Junior</button>
+          <button data-languages="react">React</button>
+          <button data-languages="sass">Sass</button>
+          <button data-languages="javascript">JavaScript</button>
+        </div>
+      </li>
+    </ul>
+  </main>
   <!-- Item Start -->
-  Photosnap
+
+  <!-- Photosnap
   New!
   Featured
   Senior Frontend Developer
   1d ago
   Full Time
-  USA only
+  USA only -->
+
   <!-- Role -->
-  Frontend
+  <!-- Frontend -->
+
   <!-- Level -->
-  Senior
+  <!-- Senior -->
+
   <!-- Languages -->
-  HTML
+  <!-- HTML
   CSS
-  JavaScript
+  JavaScript -->
   <!-- Item End -->
 
   <!-- Item Start -->
-  Manage
-  New!
-  Featured
-  Fullstack Developer
-  1d ago
-  Part Time
-  Remote
+
+  <!-- Manage -->
+  <!-- New! -->
+  <!-- Featured -->
+  <!-- Fullstack Developer -->
+  <!-- 1d ago -->
+  <!-- Part Time -->
+  <!-- Remote -->
+
   <!-- Role -->
-  Fullstack
+  <!-- Fullstack -->
+
   <!-- Level -->
-  Midweight
+  <!-- Midweight -->
+
   <!-- Languages -->
-  Python
+  <!-- Python -->
+
   <!-- Tools -->
-  React
+  <!-- React -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  Account
+  <!-- Account
   New!
   Junior Frontend Developer
   2d ago
   Part Time
-  USA only
+  USA only -->
+
   <!-- Role -->
-  Frontend
+  <!-- Frontend -->
+
   <!-- Level -->
-  Junior
+  <!-- Junior -->
+
   <!-- Languages -->
-  JavaScript
+  <!-- JavaScript -->
+
   <!-- Tools -->
-  React
-  Sass
+  <!-- React
+  Sass -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  MyHome
+  <!-- MyHome
   Junior Frontend Developer
   5d ago
   Contract
-  USA only
+  USA only -->
+
   <!-- Role -->
-  Frontend
+  <!-- Frontend -->
+
   <!-- Level -->
-  Junior
+  <!-- Junior -->
+
   <!-- Languages -->
-  CSS
-  JavaScript
+  <!-- CSS
+  JavaScript -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  Loop Studios
+  <!-- Loop Studios
   Software Engineer
   1w ago
   Full Time
-  Worldwide
+  Worldwide -->
+
   <!-- Role -->
-  Fullstack
+  <!-- Fullstack -->
+
   <!-- Level -->
-  Midweight
+  <!-- Midweight -->
+
   <!-- Languages -->
-  JavaScript
-  Ruby
+  <!-- JavaScript -->
+  <!-- Ruby -->
+
   <!-- Tools -->
-  Sass
+  <!-- Sass -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  FaceIt
+  <!-- FaceIt
   Junior Backend Developer
   2w ago
   Full Time
-  UK only
+  UK only -->
+
   <!-- Role -->
-  Backend
+  <!-- Backend -->
+
   <!-- Level -->
-  Junior
+  <!-- Junior -->
+
   <!-- Languages -->
-  Ruby
+  <!-- Ruby -->
+
   <!-- Tools -->
-  RoR
+  <!-- RoR -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  Shortly
+  <!-- Shortly
   Junior Developer
   2w ago
   Full Time
-  Worldwide
+  Worldwide -->
+
   <!-- Role -->
-  Frontend
+  <!-- Frontend -->
+
   <!-- Level -->
-  Junior
+  <!-- Junior -->
+
   <!-- Languages -->
-  HTML
-  JavaScript
+  <!-- HTML
+  JavaScript -->
+
   <!-- Tools -->
-  Sass
+  <!-- Sass -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  Insure
+  <!-- Insure
   Junior Frontend Developer
   2w ago
   Full Time
-  USA only
+  USA only -->
+
   <!-- Role -->
-  Frontend
+  <!-- Frontend -->
+
   <!-- Level -->
-  Junior
+  <!-- Junior -->
+
   <!-- Languages -->
-  JavaScript
+  <!-- JavaScript -->
+
   <!-- Tools -->
-  Vue
-  Sass
+  <!-- Vue
+  Sass -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  Eyecam Co.
+  <!-- Eyecam Co.
   Full Stack Engineer
   3w ago
   Full Time
-  Worldwide
+  Worldwide -->
+
   <!-- Role -->
-  Fullstack
+  <!-- Fullstack -->
+
   <!-- Level -->
-  Midweight
+  <!-- Midweight -->
+
   <!-- Languages -->
-  JavaScript
-  Python
+  <!-- JavaScript
+  Python -->
+
   <!-- Tools -->
-  Django
+  <!-- Django -->
+
   <!-- Item End -->
 
   <!-- Item Start -->
-  The Air Filter Company
+  <!-- The Air Filter Company
   Front-end Dev
   1mo ago
   Part Time
-  Worldwide
+  Worldwide -->
+
   <!-- Role -->
-  Frontend
+  <!-- Frontend -->
+
   <!-- Level -->
-  Junior
+  <!-- Junior -->
+
   <!-- Languages -->
-  JavaScript
+  <!-- JavaScript -->
+
   <!-- Tools -->
-  React
-  Sass
+  <!-- React
+  Sass -->
+
   <!-- Item End -->
   
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
