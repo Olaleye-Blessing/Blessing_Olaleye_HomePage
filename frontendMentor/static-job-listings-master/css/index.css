@@ -33,15 +33,18 @@ ul {
   list-style: none;
 }
 
-a:link {
+a {
   text-decoration: none;
-  color: #2c3a3a;
   font-weight: 700;
   -webkit-transition: color 0.3s linear;
   transition: color 0.3s linear;
 }
 
-a:link:hover {
+a:link, a:visited {
+  color: #2c3a3a;
+}
+
+a:hover {
   color: #5ba4a4;
 }
 
@@ -73,9 +76,7 @@ img {
 .selection {
   background-color: #fff;
   padding: 1rem 2rem 1rem 3rem;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: -2.3rem;
+  margin: -2.3rem auto 3rem;
   border-radius: 0.8rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -140,7 +141,7 @@ img {
   padding-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .list {
@@ -359,6 +360,10 @@ button {
   border-radius: 0.5rem;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+}
+
+button:focus {
+  border-radius: 0;
 }
 
 button:hover {

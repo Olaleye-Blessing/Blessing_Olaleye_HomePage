@@ -12,13 +12,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
-  <script src="index.js" defer></script>
+  <script src="index.js" defer type="module"></script>
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
+<body data-me="them">
   <div class="background">
     <!-- top background -->
   </div>
@@ -27,7 +27,7 @@
     <!-- <form role="search"> -->
       <!--  -->
     <!-- </form> -->
-    <div class="selection width">
+    <!-- <div class="selection width">
       <div class="filters">
         <div class="filter">Frontend <button class="cancel-btn"></button></div>
         <div class="filter">Backend <button class="cancel-btn"></button></div>
@@ -35,7 +35,7 @@
       <div class="clear-cont">
         <button class="clear-btn">Clear</button>
       </div>
-    </div>
+    </div> -->
     <ul class="parent-container width">
       <li class="list">
         <div class="list__detail">
@@ -59,12 +59,13 @@
           </div>
         </div>
         <div class="list__roles">
+          <!-- data-role="Frontend" data-level="senior" data-languages="html" data-languages="css" -->
           <!-- roles -->
-          <button data-role="frontend">Frontend</button>
-          <button data-level="senior">Senior</button>
-          <button data-languages="html">HTML</button>
-          <button data-languages="css">CSS</button>
-          <button data-languages="javascript">JavaScript</button>
+          <button data-role="Frontend">Frontend</button>
+          <button data-level="Senior">Senior</button>
+          <button data-languages="HTML">HTML</button>
+          <button data-languages="CSS">CSS</button>
+          <button data-languages="JavaScript">JavaScript</button>
         </div>
       </li>
       <li class="list">
@@ -90,10 +91,10 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="fullstack">Fullstack</button>
-          <button data-level="midweight">Midweight</button>
-          <button data-languages="python">Python</button>
-          <button data-languages="react">React</button>
+          <button data-role="Fullstack">Fullstack</button>
+          <button data-level="Midweight">Midweight</button>
+          <button data-languages="Python">Python</button>
+          <button data-tools="React">React</button>
           <!-- <button data-languages="">JAVASCRIPT</button> -->
         </div>
       </li>
@@ -120,11 +121,11 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="frontend">Frontend</button>
-          <button data-level="junior">Junior</button>
-          <button data-languages="react">React</button>
-          <button data-languages="sass">Sass</button>
-          <button data-languages="javascript">Javascript</button>
+          <button data-role="Frontend">Frontend</button>
+          <button data-level="Junior">Junior</button>
+          <button data-tools="React">React</button>
+          <button data-tools="Sass">Sass</button>
+          <button data-languages="JavaScript">Javascript</button>
         </div>
       </li>
       <li class="list">
@@ -150,10 +151,10 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="frontend">Frontend</button>
-          <button data-level="junior">Junior</button>
-          <button data-languages="css">CSS</button>
-          <button data-languages="javaScript">JavaScript</button>
+          <button data-role="Frontend">Frontend</button>
+          <button data-level="Junior">Junior</button>
+          <button data-languages="CSS">CSS</button>
+          <button data-languages="JavaScript">JavaScript</button>
           <!-- <button data-languages="">JAVASCRIPT</button> -->
         </div>
       </li>
@@ -180,11 +181,11 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="fullstack">Fullstack</button>
-          <button data-level="midweight">Midweight</button>
-          <button data-languages="javascript">Javascript</button>
-          <button data-languages="sass">Sass</button>
-          <button data-languages="ruby">Ruby</button>
+          <button data-role="Fullstack">Fullstack</button>
+          <button data-level="Midweight">Midweight</button>
+          <button data-languages="JavaScript">Javascript</button>
+          <button data-tools="Sass">Sass</button>
+          <button data-languages="Ruby">Ruby</button>
         </div>
       </li>
       <li class="list">
@@ -210,10 +211,10 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="backend">Backend</button>
-          <button data-level="junior">Junior</button>
-          <button data-languages="ruby">Ruby</button>
-          <button data-languages="ror">RoR</button>
+          <button data-role="Backend">Backend</button>
+          <button data-level="Junior">Junior</button>
+          <button data-languages="Ruby">Ruby</button>
+          <button data-tools="RoR">RoR</button>
           <!-- <button data-languages="">JAVASCRIPT</button> -->
         </div>
       </li>
@@ -240,11 +241,11 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="frontend">Frontend</button>
-          <button data-level="junior">Junior</button>
-          <button data-languages="html">HTML</button>
-          <button data-languages="sass">Sass</button>
-          <button data-languages="javascript">JavaScript</button>
+          <button data-role="Frontend">Frontend</button>
+          <button data-level="Junior">Junior</button>
+          <button data-languages="HTML">HTML</button>
+          <button data-tools="Sass">Sass</button>
+          <button data-languages="JavaScript">JavaScript</button>
         </div>
       </li>
       <li class="list">
@@ -270,11 +271,11 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="frontend">Frontend</button>
-          <button data-level="junior">Junior</button>
-          <button data-languages="vue">Vue</button>
-          <button data-languages="javascript">Javascript</button>
-          <button data-languages="sass">Sass</button>
+          <button data-role="Frontend">Frontend</button>
+          <button data-level="Junior">Junior</button>
+          <button data-tools="Vue">Vue</button>
+          <button data-languages="JavaScript">Javascript</button>
+          <button data-tools="Sass">Sass</button>
         </div>
       </li>
       <li class="list">
@@ -300,11 +301,11 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="fullstack">Fullstack</button>
-          <button data-level="midweight">Midweight</button>
-          <button data-languages="javascript">JavaScript</button>
-          <button data-languages="django">Django</button>
-          <button data-languages="python">Python</button>
+          <button data-role="Fullstack">Fullstack</button>
+          <button data-level="Midweight">Midweight</button>
+          <button data-languages="JavaScript">JavaScript</button>
+          <button data-tools="Django">Django</button>
+          <button data-languages="Python">Python</button>
         </div>
       </li>
       <li class="list">
@@ -330,11 +331,11 @@
         </div>
         <div class="list__roles">
           <!-- roles -->
-          <button data-role="frontend">Frontend</button>
-          <button data-level="junior">Junior</button>
-          <button data-languages="react">React</button>
-          <button data-languages="sass">Sass</button>
-          <button data-languages="javascript">JavaScript</button>
+          <button data-role="Frontend">Frontend</button>
+          <button data-level="Junior">Junior</button>
+          <button data-tools="React">React</button>
+          <button data-tools="Sass">Sass</button>
+          <button data-languages="JavaScript">JavaScript</button>
         </div>
       </li>
     </ul>
