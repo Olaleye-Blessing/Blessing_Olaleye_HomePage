@@ -1,0 +1,31 @@
+:root {
+  --bgColor: hsl(207, 26%, 17%);
+  --color: hsl(0, 0%, 100%);
+  --element: hsl(209, 23%, 22%);
+}
+
+:root.white-mode {
+  --bgColor: hsl(0, 0%, 98%);
+  --color: hsl(200, 15%, 8%);
+  --element: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 52%);
+}
+
+html {
+  font-size: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  background-color: var(--bgColor);
+  font-size: 1.6rem;
+  color: var(--color);
+}
