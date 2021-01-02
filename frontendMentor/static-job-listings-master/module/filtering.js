@@ -41,27 +41,56 @@ function cancelFilter(event) {
             btnAttValue = targetBtn.dataset[`${att}`]
         }
 
+        // console.log(filteredOptions);
         filteredOptions[btnAtt] = filteredOptions[btnAtt].filter(option => option != btnAttValue);
-
-        targetBtn.parentElement.remove();
-        
-        allLists.forEach(list => {
-            let buttons = document.querySelectorAll('button');
-            let some;
-            buttons.forEach(button => {
-                if (button.dataset[`${btnAtt}`]) {
-
-                    some = filteredOptions[btnAtt].some(elem => elem == btnAttValue)
+        // console.log(filteredOptions);
+        let found;
+        for (let list of allLists) {
+            for (let leftoption in filteredOptions) {
+                for (let btn of list.querySelectorAll('button')) {
+                    if (filteredOptions[leftoption].includes(btn.textContent)) {
+                        found = true
+                    }
                 }
-            })
-            if (!some) {
-                list.hidden = false;
             }
-        })
+            if (found) {
+                list.style.display = ''
+            }
+        }
+        targetBtn.parentElement.remove();
+        if (document.querySelector('.filters').children.length == 0) {
+            document.querySelector('.selection').remove();
+        }
+        // for (let leftoption in filteredOptions) {
+        //     console.log(leftoption)
+        //     for (let list of allLists) {
+        //         for (let btn of list.querySelectorAll('button')) {
+        //             if (filteredOptions[leftoption].includes(btn.textContent)) {
+        //                 found = true;
+        //             }
+        //         }
+        //     }
+        // }
+
+        // targetBtn.parentElement.remove();
+        
+        // allLists.forEach(list => {
+        //     let buttons = document.querySelectorAll('button');
+        //     let some;
+        //     buttons.forEach(button => {
+        //         if (button.dataset[`${btnAtt}`]) {
+
+        //             some = filteredOptions[btnAtt].some(elem => elem == btnAttValue)
+        //         }
+        //     })
+        //     if (!some) {
+        //         list.hidden = false;
+        //     }
+        // })
 
     } else {
         allLists.forEach(list => {
-            list.hidden = false;
+            list.style.display = '';
             for (let key in filteredOptions) {
                 filteredOptions[key] = [];
             }
@@ -69,3 +98,13 @@ function cancelFilter(event) {
         document.querySelector('.selection').remove();
     }
 }
+
+// function notWorkingProperly() {
+//     let div = document.createElement('div');
+//     div.textContent = 'This cancel button is not working properly';
+//     div.classList.add('not-working')
+//     document.body.prepend(div);
+// }
+
+// notWorkingProperly();
+

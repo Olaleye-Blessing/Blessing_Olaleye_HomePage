@@ -27,7 +27,8 @@ async function filterItems(event) {
             }
         })
         if (!found) {
-            list.hidden = true;
+            // list.hidden = true;
+            list.style.display = 'none';
         }
     })
 
