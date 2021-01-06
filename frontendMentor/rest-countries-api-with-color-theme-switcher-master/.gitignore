@@ -22,3 +22,7 @@
 *.scss.map
 
 scss/
+
+svg/
+
+sample.json

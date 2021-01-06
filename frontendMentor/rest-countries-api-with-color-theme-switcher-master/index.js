@@ -35,7 +35,6 @@ window.addEventListener('load', event => {
     
 })
 
-
 modeSwitch.addEventListener("click", (event) => {
     root.classList.toggle("white-mode");
 });
@@ -76,6 +75,8 @@ async function insertCountries() {
     }
 }
 
+// insertCountries();
+
 document.addEventListener("DOMContentLoaded", insertCountries);
 
 searchFilter.addEventListener("input", (event) => {
@@ -101,7 +102,7 @@ searchFilter.addEventListener("input", (event) => {
     if (!found) {
         // create a not found message
         let errorMesssage = notfound();
-        body.append(errorMesssage);
+        main.append(errorMesssage);
     }
 });
 
