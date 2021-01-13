@@ -173,8 +173,14 @@ form.addEventListener("submit", async function (e) {
         removeMessage();
     }, 2000);
     
+    
     localStorage.setItem(`lists`, JSON.stringify(allLists));
 
+    // if (localStorage.getItem('lists') == null) {
+    //     localStorage.setItem('lists', JSON.stringify(allLists))
+    // } else {
+    //     localStorage.setItem(`lists`, JSON.stringify(allLists));
+    // }
 });
 
 function loadLocalStorage(links) {
@@ -185,14 +191,32 @@ function loadLocalStorage(links) {
 }
 
 window.addEventListener("load", () => {
-    allLists = JSON.parse(localStorage.getItem("lists"));
-    // console.log(allLists);
-    // loadLocalStorage(allLists);
-    
-    if(allLists.length != 0) {
+    if (localStorage.getItem("lists") !== null) {
+        allLists = JSON.parse(localStorage.getItem("lists"));
         loadLocalStorage(allLists);
-        createClearHistoryBtn();
+
+        if(allLists.length != 0) {
+            createClearHistoryBtn();
+        }
     }
+    // allLists = JSON.parse(localStorage.getItem("lists"));
+    // // console.log(allLists);
+    // // loadLocalStorage(allLists);
+    
+    // if(allLists.length != 0) {
+    //     loadLocalStorage(allLists);
+    //     createClearHistoryBtn();
+    // }
+    // if (allLists != null) {
+    //     allLists = JSON.parse(localStorage.getItem("lists"));
+    // // console.log(allLists);
+    // // loadLocalStorage(allLists);
+    
+    //     if(allLists.length != 0) {
+    //         loadLocalStorage(allLists);
+    //         createClearHistoryBtn();
+    //     }
+    // }
 });
 
 urlInput.addEventListener("input", (e) => {
