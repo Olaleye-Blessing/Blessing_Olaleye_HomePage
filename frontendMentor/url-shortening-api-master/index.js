@@ -184,7 +184,7 @@ function loadLocalStorage(links) {
     }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     allLists = JSON.parse(localStorage.getItem("lists"));
     // console.log(allLists);
     // loadLocalStorage(allLists);
