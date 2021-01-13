@@ -186,9 +186,11 @@ function loadLocalStorage(links) {
 
 window.addEventListener("DOMContentLoaded", () => {
     allLists = JSON.parse(localStorage.getItem("lists"));
-    loadLocalStorage(allLists);
+    // console.log(allLists);
+    // loadLocalStorage(allLists);
     
     if(allLists.length != 0) {
+        loadLocalStorage(allLists);
         createClearHistoryBtn();
     }
 });
