@@ -129,9 +129,11 @@ button:hover {
   background-color: transparent;
   border: none;
   background-image: url(../images/icon-hamburger.svg);
-  background-size: 115% 149%;
+  background-size: 150% 200%;
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-transform: translateY(-0.4rem);
+          transform: translateY(-0.4rem);
 }
 
 a.colored-link:link, a.colored-link:visited {
@@ -365,6 +367,12 @@ form {
 @media (min-width: 800px) {
   form {
     background-image: url(../images/bg-shorten-desktop.svg);
+  }
+}
+
+@media (max-width: 590px) {
+  .form button {
+    margin-top: 3rem;
   }
 }
 
@@ -706,6 +714,19 @@ form {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+  }
+}
+
+@media (max-width: 880px) {
+  .footer__social-links a {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  .footer__social-links a:first-child {
+    margin-left: 0;
+  }
+  .footer__social-links a:last-child {
+    margin-right: 0;
   }
 }
 
