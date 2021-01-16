@@ -1,0 +1,21 @@
+html {
+  font-size: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+body {
+  font-size: 1.8rem;
+}
