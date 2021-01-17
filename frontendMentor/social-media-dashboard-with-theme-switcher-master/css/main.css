@@ -1,3 +1,30 @@
+:root {
+  --main-bg-top: hsl(232, 19%, 15%);
+  --main-bg-bottom: hsl(230, 17%, 14%);
+  --main-color: hsl(0, 0%, 100%);
+  --bg-card: hsl(228, 28%, 20%);
+  --color-card: hsl(0, 0%, 100%);
+  --bg-card-hover: #3d466c;
+  --blue-text: hsl(228, 34%, 66%);
+  --dark-blue: #8794c4;
+  --dark-grey-blue: hsl(228, 12%, 44%);
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --white-toggle: hsl(230, 22%, 74%);
+  --checked-slider: hsl(0, 0%, 100%);
+  --toggle-blue-part: hsl(210, 78%, 56%);
+  --toggle-green-part: hsl(146, 68%, 55%);
+}
+
+:root.white {
+  --main-bg-top: hsl(225, 100%, 98%);
+  --main-bg-bottom: hsl(0, 0%, 100%);
+  --main-color: hsl(230, 17%, 14%);
+  --bg-card: hsl(227, 47%, 96%);
+  --color-card: hsl(230, 17%, 14%);
+  --bg-card-hover: #d2d8ef;
+}
+
 html {
   font-size: 62.5%;
   -webkit-box-sizing: border-box;
@@ -13,11 +40,28 @@ html {
           box-sizing: inherit;
 }
 
+* {
+  -webkit-transition: background 0.5s linear, color 0.5s linear;
+  transition: background 0.5s linear, color 0.5s linear;
+}
+
+*:focus {
+  outline: 0.2rem solid var(--bright-red);
+}
+
 body {
   font-family: "Inter", sans-serif;
   font-size: 1.4rem;
   line-height: 1.4;
   padding: 3rem 4rem 6rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(12%, var(--main-bg-top)), color-stop(12%, var(--main-bg-bottom)));
+  background-image: linear-gradient(180deg, var(--main-bg-top) 12%, var(--main-bg-bottom) 12%);
+  color: var(--main-color);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--bright-red);
 }
 
 @media screen and (min-width: 800px) {
@@ -32,46 +76,22 @@ body {
   }
 }
 
-.black-mode {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(12%, #1f212e), color-stop(12%, #1e202a));
-  background-image: linear-gradient(180deg, #1f212e 12%, #1e202a 12%);
-  color: white;
-}
-
-.white-mode {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(12%, #f5f7ff), color-stop(12%, white));
-  background-image: linear-gradient(180deg, #f5f7ff 12%, white 12%);
-  color: #1e202a;
-}
-
 .heading {
   font-size: 2.4rem;
   letter-spacing: 0.1rem;
 }
 
 @media screen and (min-width: 605px) {
-  .black-mode {
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #1f212e), color-stop(20%, #1e202a));
-    background-image: linear-gradient(180deg, #1f212e 20%, #1e202a 20%);
-    color: white;
-  }
-  .white-mode {
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #f5f7ff), color-stop(20%, white));
-    background-image: linear-gradient(180deg, #f5f7ff 20%, white 20%);
-    color: #1e202a;
+  body {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, var(--main-bg-top)), color-stop(20%, var(--main-bg-bottom)));
+    background-image: linear-gradient(180deg, var(--main-bg-top) 20%, var(--main-bg-bottom) 20%);
   }
 }
 
 @media screen and (min-width: 1175px) {
-  .black-mode {
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #1f212e), color-stop(32%, #1e202a));
-    background-image: linear-gradient(180deg, #1f212e 32%, #1e202a 32%);
-    color: white;
-  }
-  .white-mode {
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #f5f7ff), color-stop(32%, white));
-    background-image: linear-gradient(180deg, #f5f7ff 32%, white 32%);
-    color: #1e202a;
+  body {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(32%, var(--main-bg-top)), color-stop(32%, var(--main-bg-bottom)));
+    background-image: linear-gradient(180deg, var(--main-bg-top) 32%, var(--main-bg-bottom) 32%);
   }
 }
 
@@ -81,8 +101,8 @@ body {
 }
 
 .head__dashboard {
-  -webkit-border-after: 0.01rem solid #8794c4;
-          border-block-end: 0.01rem solid #8794c4;
+  -webkit-border-after: 0.01rem solid var(--dark-blue);
+          border-block-end: 0.01rem solid var(--dark-blue);
   -webkit-padding-after: 2.2rem;
           padding-block-end: 2.2rem;
   -webkit-margin-after: 1.7rem;
@@ -96,7 +116,7 @@ body {
 
 .head__dashboard > div {
   font-weight: 700;
-  color: #8b97c6;
+  color: var(--blue-text);
 }
 
 @media screen and (min-width: 670px) {
@@ -118,7 +138,7 @@ body {
 
 .mode {
   font-weight: 700;
-  color: #8b97c6;
+  color: var(--blue-text);
 }
 
 .mode__toggle {
@@ -142,9 +162,9 @@ body {
 }
 
 .mode__toggle > input:checked + .mode__toggle-slider {
-  background-image: -webkit-gradient(linear, left top, right top, from(#aeb3cb), to(#aeb3cb));
-  background-image: linear-gradient(90deg, #aeb3cb, #aeb3cb);
-  background-color: #aeb3cb;
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--white-toggle)), to(var(--white-toggle)));
+  background-image: linear-gradient(90deg, var(--white-toggle), var(--white-toggle));
+  background-color: var(--white-toggle);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -152,7 +172,7 @@ body {
 .mode__toggle > input:checked + .mode__toggle-slider::after {
   -webkit-transform: translateX(2.3rem);
           transform: translateX(2.3rem);
-  background-color: white;
+  background-color: var(--checked-slider);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -160,8 +180,8 @@ body {
 .mode__toggle-slider {
   block-size: 2.8rem;
   inline-size: 5.4rem;
-  background-image: -webkit-gradient(linear, left top, right top, from(#378fe6), to(#3eda82));
-  background-image: linear-gradient(90deg, #378fe6, #3eda82);
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--toggle-blue-part)), to(var(--toggle-green-part)));
+  background-image: linear-gradient(90deg, var(--toggle-blue-part), var(--toggle-green-part));
   -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: 3.4rem;
@@ -176,7 +196,7 @@ body {
   content: "";
   block-size: 2rem;
   inline-size: 2rem;
-  background-color: #63687e;
+  background-color: var(--dark-grey-blue);
   -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: 5rem;
@@ -195,6 +215,13 @@ body {
   -webkit-padding-after: 2rem;
           padding-block-end: 2rem;
   border-radius: 0.4rem;
+  background-color: var(--bg-card);
+  color: var(--color-card);
+}
+
+.card:hover {
+  background-color: var(--bg-card-hover);
+  cursor: pointer;
 }
 
 .social {
@@ -238,7 +265,7 @@ body {
 
 .social__medium-id {
   font-weight: 700;
-  color: #8b97c6;
+  color: var(--blue-text);
   letter-spacing: 0.08rem;
 }
 
@@ -264,7 +291,7 @@ body {
 }
 
 .social__medium-followers > span:nth-of-type(2) {
-  color: #63687e;
+  color: var(--dark-grey-blue);
   letter-spacing: 0.5rem;
   font-weight: 400;
   -webkit-margin-before: -0.9rem;
@@ -329,7 +356,7 @@ body {
 
 .overview__card-detail {
   font-weight: 700;
-  color: #8b97c6;
+  color: var(--blue-text);
 }
 
 .overview__card-number > span {
@@ -392,28 +419,4 @@ body {
 
 .negative {
   color: #dc414c;
-}
-
-.dark-card {
-  background-color: #252a41;
-  color: white;
-  -webkit-transition: background 0.2s linear;
-  transition: background 0.2s linear;
-}
-
-.dark-card:hover {
-  background-color: #3d466c;
-  cursor: pointer;
-}
-
-.white-card {
-  background-color: #f0f2fa;
-  color: #1e202a;
-  -webkit-transition: background 0.2s linear;
-  transition: background 0.2s linear;
-}
-
-.white-card:hover {
-  background-color: #d2d8ef;
-  cursor: pointer;
 }
