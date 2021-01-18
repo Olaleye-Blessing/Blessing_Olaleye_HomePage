@@ -98,6 +98,16 @@ input[type="text"] {
   caret-color: var(--input-caret);
 }
 
+.text, .todo__text {
+  margin-left: clamp(0.8rem, 1.2vw, 2rem);
+}
+
+@media (max-width: 799px) {
+  .text, .todo__text {
+    margin-left: 0;
+  }
+}
+
 ::-webkit-input-placeholder {
   color: var(--placeholder-text);
 }
