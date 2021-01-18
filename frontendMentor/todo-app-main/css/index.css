@@ -1,3 +1,52 @@
+:root {
+  --header-bg-img: url(../images/bg-mobile-dark.jpg);
+  --header-bg-img-big: url(../images/bg-desktop-dark.jpg);
+  --bright-blue: hsl(220, 98%, 61%);
+  --bg-first: hsl(192, 100%, 67%);
+  --bg-second: hsl(280, 87%, 65%);
+  --main-bg: hsl(235, 21%, 11%);
+  --main-text: hsl(0, 0%, 98%);
+  --box-bg: hsl(235, 24%, 19%);
+  --box-text: hsl(0, 0%, 98%);
+  --input-caret: red;
+  --radio-border: hsl(235, 19%, 35%);
+  --todo-check: hsl(235, 19%, 35%);
+  --todo-flex-border: hsl(233, 14%, 35%);
+  --todo-drag-text: green;
+  --todo-drag-bg-1: #93f79e;
+  --todo-drag-bg-2: #aef7b5;
+  --todo-drag-bg-3: #d7fadb;
+  --todo-drag-bg-4: #f2faf3;
+  --placeholder-text: hsl(235, 19%, 35%);
+  --items-text: hsl(235, 19%, 35%);
+  --hover-txt: hsl(0, 0%, 98%);
+  --attri-txt: hsl(0, 0%, 98%);
+  --attri-focus-shadow: red;
+}
+
+:root.light {
+  --header-bg-img: url(../images/bg-mobile-light.jpg);
+  --header-bg-img-big: url(../images/bg-desktop-light.jpg);
+  --yellow: blue;
+  --main-bg: hsl(236, 33%, 92%);
+  --main-text: hsl(0, 0%, 98%);
+  --box-bg: hsl(0, 0%, 98%);
+  --box-text: hsl(235, 19%, 35%);
+  --radio-border: hsl(233, 11%, 84%);
+  --todo-check: hsl(233, 11%, 84%);
+  --todo-flex-border: hsl(234, 39%, 85%);
+  --todo-drag-text: red;
+  --todo-drag-bg-1: #f7939e;
+  --todo-drag-bg-2: #f7aeb5;
+  --todo-drag-bg-3: #fad7db;
+  --todo-drag-bg-4: #faf2f3;
+  --placeholder-text: hsl(234, 11%, 52%);
+  --items-text: hsl(236, 9%, 61%);
+  --hover-txt: hsl(235, 19%, 35%);
+  --attri-txt: hsl(235, 21%, 11%);
+  --attri-focus-shadow: ;
+}
+
 html {
   font-size: 62.5%;
   -webkit-box-sizing: border-box;
@@ -13,14 +62,56 @@ html {
   padding: 0;
 }
 
+*:focus {
+  outline: 2px ridge red;
+}
+
+* {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.6rem;
   line-height: 1.4;
+  background-color: var(--main-bg);
+  color: var(--main-text);
 }
 
 main {
   padding: 2rem 3.3rem;
+}
+
+.header {
+  background-image: var(--header-bg-img);
+}
+
+@media screen and (min-width: 800px) {
+  .header {
+    background-image: var(--header-bg-img-big);
+    background-position: left center;
+  }
+}
+
+input[type="text"] {
+  caret-color: var(--input-caret);
+}
+
+::-webkit-input-placeholder {
+  color: var(--placeholder-text);
+}
+
+:-ms-input-placeholder {
+  color: var(--placeholder-text);
+}
+
+::-ms-input-placeholder {
+  color: var(--placeholder-text);
+}
+
+::placeholder {
+  color: var(--placeholder-text);
 }
 
 ul {
@@ -92,15 +183,8 @@ header {
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-*:focus {
-  outline: 2px ridge red;
-}
-
-* {
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  background-color: var(--box-bg);
+  color: var(--box-text);
 }
 
 .todo-check:focus, .custom-radio:focus {
@@ -116,186 +200,31 @@ header {
           box-shadow: 0px 0px 6px 3px red;
 }
 
-body {
-  background-color: #161722;
-  color: #fafafa;
-}
-
-.header {
-  background-image: url(../images/bg-mobile-dark.jpg);
-}
-
-.box {
-  background-color: #25273c;
-  color: #fafafa;
-}
-
-input[type="text"] {
-  caret-color: red;
-}
-
-.custom-radio {
-  border: 0.1rem solid #484b6a;
-}
-
-.todo-check {
-  border: 0.1rem solid #484b6a;
-}
-
-.todo-flex {
-  -webkit-border-after: 0.1rem solid #4d5066;
-          border-block-end: 0.1rem solid #4d5066;
-}
-
-.todo.dragging {
-  color: green;
-  background-image: linear-gradient(115deg, #93f79e, #aef7b5, #d7fadb, #f2faf3);
-  opacity: 0.4;
-}
-
-::-webkit-input-placeholder {
-  color: #484b6a;
-}
-
-:-ms-input-placeholder {
-  color: #484b6a;
-}
-
-::-ms-input-placeholder {
-  color: #484b6a;
-}
-
-::placeholder {
-  color: #484b6a;
-}
-
-.items {
-  color: #484b6a;
-}
-
-.items button {
-  color: inherit;
-}
-
-.hover:hover {
-  cursor: pointer;
-  color: #fafafa;
-}
-
-.attribution {
-  margin-top: 5rem;
-  color: #fafafa;
-}
-
-.attribution a:focus {
-  -webkit-box-shadow: 0px 0px 3px 3px red;
-          box-shadow: 0px 0px 3px 3px red;
-}
-
-.attribution a:hover, .attribution a:focus {
-  text-decoration: underline;
-}
-
-.attribution a:active {
-  text-decoration: none;
-}
-
-.sun {
-  background-color: #e4e5f1;
-  color: #fafafa;
-}
-
-.sun .attribution {
-  color: #161722;
-}
-
-.sun .header {
-  background-image: url(../images/bg-mobile-light.jpg);
-}
-
-.sun .box {
-  background-color: #fafafa;
-  color: #484b6a;
-}
-
-.sun .custom-radio {
-  border: 0.1rem solid #d2d3db;
-}
-
-.sun .todo-check {
-  border: 0.1rem solid #d2d3db;
-}
-
-.sun .todo-flex {
-  -webkit-border-after: 0.1rem solid #cacde8;
-          border-block-end: 0.1rem solid #cacde8;
-}
-
-.sun .todo.dragging {
-  color: red;
-  background-image: linear-gradient(115deg, #f7939e, #f7aeb5, #fad7db, #faf2f3);
-  opacity: 0.4;
-}
-
-.sun ::-webkit-input-placeholder {
-  color: #777a92;
-}
-
-.sun :-ms-input-placeholder {
-  color: #777a92;
-}
-
-.sun ::-ms-input-placeholder {
-  color: #777a92;
-}
-
-.sun ::placeholder {
-  color: #777a92;
-}
-
-.sun .items {
-  color: #9394a5;
-}
-
-.sun .items button {
-  color: inherit;
-}
-
-.sun .hover:hover {
-  cursor: pointer;
-  color: #484b6a;
-}
-
-.sun .todo-check:focus, .sun .custom-radio:focus {
-  color: red;
-}
-
-.sun .hover:focus, .sun button:focus {
-  color: red;
-}
-
-@media screen and (min-width: 800px) {
-  .header {
-    background-image: url(../images/bg-desktop-dark.jpg);
-    background-position: left center;
-  }
-  .sun .header {
-    background-image: url(../images/bg-desktop-light.jpg);
-  }
-  .attribution {
-    margin-top: 0;
-  }
-}
-
 .custom-radio {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+  border: 0.1rem solid var(--radio-border);
 }
 
 .custom-radio:hover {
   cursor: pointer;
   background-color: green;
+}
+
+.todo-flex {
+  -webkit-border-after: 0.1rem solid var(--todo-flex-border);
+          border-block-end: 0.1rem solid var(--todo-flex-border);
+}
+
+.todo-check {
+  border: 0.1rem solid var(--todo-check);
+}
+
+.todo.dragging {
+  color: var(--todo-drag-text);
+  background-image: linear-gradient(115deg, var(--todo-drag-bg-1), var(--todo-drag-bg-2), var(--todo-drag-bg-3), var(--todo-drag-bg-4));
+  opacity: 0.4;
 }
 
 .todo__check-cont {
@@ -315,7 +244,7 @@ input[type="text"] {
 }
 
 .todo__check-cont input:checked + label {
-  background-image: linear-gradient(145deg, #57ddff, #c058f3), url(../images/icon-check.svg);
+  background-image: linear-gradient(145deg, var(--bg-first), var(--bg-second)), url(../images/icon-check.svg);
   background-repeat: no-repeat;
   background-size: cover 70%;
   background-position: center;
@@ -333,10 +262,10 @@ input[type="text"] {
 
 .todo__check-cont label:hover {
   cursor: pointer;
-  border-top-color: #57ddff;
-  border-bottom-color: #c058f3;
-  border-left-color: #57ddff;
-  border-right-color: #c058f3;
+  border-top-color: var(--bg-first);
+  border-bottom-color: var(--bg-second);
+  border-left-color: var(--bg-first);
+  border-right-color: var(--bg-second);
 }
 
 .todo:focus {
@@ -415,6 +344,7 @@ input[type="text"] {
 }
 
 .items {
+  color: var(--items-text);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -432,6 +362,7 @@ input[type="text"] {
 }
 
 .items button {
+  color: inherit;
   font-size: 1.6rem;
   background-color: transparent;
   border: none;
@@ -470,8 +401,37 @@ input[type="text"] {
   }
 }
 
+.attribution {
+  margin-top: 5rem;
+  color: var(--attri-txt);
+}
+
+.attribution a:focus {
+  -webkit-box-shadow: 0px 0px 3px 3px var(--attri-focus-shadow);
+          box-shadow: 0px 0px 3px 3px var(--attri-focus-shadow);
+}
+
+.attribution a:hover, .attribution a:focus {
+  text-decoration: underline;
+}
+
+.attribution a:active {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 800px) {
+  .attribution {
+    margin-top: 0;
+  }
+}
+
+.hover:hover {
+  cursor: pointer;
+  color: var(--hover-txt);
+}
+
 .active {
-  color: #3a7bfd !important;
+  color: var(--bright-blue) !important;
 }
 
 #switchMode:hover {

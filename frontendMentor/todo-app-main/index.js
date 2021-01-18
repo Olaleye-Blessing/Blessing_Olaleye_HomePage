@@ -1,6 +1,6 @@
 // -----------------
 
-// variables(line 5) -- Dom variables(line 13) -- functions(line 42) -- events(line 298)
+// variables(line 5) -- Dom variables(line 13) -- functions(line 44) -- events(line 335)
 
 // variables
 
@@ -28,6 +28,10 @@ let clearCompletedBtn = document.querySelector('.clear-items');
 
 let itemsLeftSpan = document.querySelector('.items-left span');
 
+let toggleBg = "icon-sun.svg";
+
+let toggleAlt = "dark mode switch icon";
+
 let todoLocalStorage;
 
 if (JSON.parse(localStorage.getItem('lists'))) {
@@ -40,6 +44,29 @@ if (JSON.parse(localStorage.getItem('lists'))) {
 // ---------------------
 
 // functions
+
+
+function swithingMode() {
+    root.classList.toggle('light');
+
+    let theme = 'dark';
+
+    if (root.classList.contains('light')) {
+        theme = 'light';
+        toggleBg = "images/icon-moon.svg";
+        toggleAlt = "light mode switch icon"
+    } else {
+        toggleBg = "images/icon-sun.svg";
+        toggleAlt = "dark mode switch icon";
+    }
+
+    modeSwitcher.src = toggleBg;
+    modeSwitcher.alt = toggleAlt;
+
+    localStorage.setItem('theme', theme);
+    localStorage.setItem('modeBg', toggleBg);
+    localStorage.setItem('modeAlt', toggleAlt);
+}
 
 function itemsLeftFunc() {
     itemsLeft = todoListsCont.querySelectorAll('[data-complete="false"]').length;
@@ -98,6 +125,20 @@ function createTodoCont(value, completed) {
 function addTodo() {
     if (textTodo.value == "") {
         return;
+    }
+
+    if (document.querySelector('[data-status="Completed"]').classList.contains('active')) {
+        document.querySelector('[data-status="Completed"]').classList.remove('active');
+
+        document.querySelector('[data-status="All"]').classList.add('active');
+
+        let allLists = todoListsCont.querySelectorAll(".todo");
+
+        for (let list of allLists) {
+            list.classList.add("todo-flex");
+            list.hidden = false;
+        }
+
     }
 
     let todoCont = createTodoCont(textTodo.value, false);
@@ -160,14 +201,7 @@ function keyboardNewTodo(event) {
     }
 }
 
-function swithingMode() {
-    body.classList.toggle("sun");
-    if (body.classList.contains("sun")) {
-        modeSwitcher.src = "images/icon-moon.svg";
-    } else {
-        modeSwitcher.src = "images/icon-sun.svg";
-    }
-}
+
 
 // this works for both click and focus(Enter Key) cause of the sematic used(button)
 function removeList(event) {
@@ -391,6 +425,16 @@ window.addEventListener('load', event => {
         todoLocalStorage = newLocalStorage;
         localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
         itemsLeftFunc();
+    }
+})
+
+window.addEventListener('DOMContentLoaded', event => {
+    if (localStorage.getItem('modeBg')) {
+        modeSwitcher.src = localStorage.getItem('modeBg');
+        modeSwitcher.alt = localStorage.getItem('modeAlt');
+    } else {
+        modeSwitcher.src = 'images/icon-sun.svg';
+        modeSwitcher.alt = 'dark mode switch icon';
     }
 })
 
