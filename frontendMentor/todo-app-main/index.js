@@ -175,10 +175,12 @@ function removeList(event) {
         return;
     }
 
-    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
+    // todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
 
     let listToRemove = event.target.closest(".todo");
     listToRemove.classList.add('remove-list-animation');
+
+    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
 
     let localId = listToRemove.dataset.id;
     
@@ -190,6 +192,7 @@ function removeList(event) {
     }
     
     localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
+    
     setTimeout(() => {
         listToRemove.remove();
         itemsLeftFunc();
@@ -364,9 +367,20 @@ window.addEventListener('load', event => {
             let todoCont = createTodoCont(todoLocalStorage[list].value, todoLocalStorage[list].completed);
             todoCont.dataset.id = `${list}${localID}`;
             localID += 1;
-            todoListsCont.append(todoCont);
             todoCont.querySelector('input').id = todoCont.dataset.id;
             todoCont.querySelector('label').setAttribute('for', todoCont.dataset.id);
+            todoListsCont.append(todoCont);
+            setTimeout(() => {
+                todoCont.classList.remove('adding-list-animation');
+            }, 1100);
+
+            todoCont.addEventListener('dragstart', event => {
+                todoCont.classList.add('dragging');
+            })
+        
+            todoCont.addEventListener('dragend', event => {
+                todoCont.classList.remove('dragging');
+            })
             
             newLocalStorage[todoCont.dataset.id] = {
                 value: todoCont.querySelector('.todo__text').textContent,
