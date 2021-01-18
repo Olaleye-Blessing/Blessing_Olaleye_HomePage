@@ -1,10 +1,12 @@
 // -----------------
 
-// variables(line 5) -- Dom variables(line 11) -- functions(line 31) -- events(line 238)
+// variables(line 5) -- Dom variables(line 13) -- functions(line 42) -- events(line 298)
 
 // variables
 
 let listId = 0; // this is use to give each label and input different for and id (attribue)
+
+let localID = 1; // this is use to give lists stored to localstorage a new IDs so that two lists won't have the same id
 
 let itemsLeft = 0;
 
@@ -26,6 +28,15 @@ let clearCompletedBtn = document.querySelector('.clear-items');
 
 let itemsLeftSpan = document.querySelector('.items-left span');
 
+let todoLocalStorage;
+
+if (JSON.parse(localStorage.getItem('lists'))) {
+    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
+} else {
+    todoLocalStorage = {};
+    localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
+}
+
 // ---------------------
 
 // functions
@@ -35,16 +46,14 @@ function itemsLeftFunc() {
     itemsLeftSpan.textContent = itemsLeft;
 }
 
-// add new list
-function addTodo() {
-    if (textTodo.value == "") {
-        return;
-    }
+// create todoCont
 
+function createTodoCont(value, completed) {
     let todoCont = document.createElement("li");
     todoCont.classList.add("box", "todo-flex", "todo", 'adding-list-animation');
     todoCont.tabIndex = 0;
-    todoCont.setAttribute("data-complete", "false");
+    // todoCont.setAttribute("data-complete", "false");
+    todoCont.setAttribute("data-complete", completed); // used this for easy creating of list in local storage
     todoCont.setAttribute('draggable', true);
 
     let checkCont = document.createElement("div");
@@ -52,11 +61,9 @@ function addTodo() {
 
     let input = document.createElement("input");
     input.setAttribute("type", "checkbox");
-    input.setAttribute(
-        "aria-label",
-        "check and uncheck to complete and uncomplete todo list"
-    );
-    input.id = `${textTodo.value.substring(0, 1)}${listId}`;
+    input.setAttribute("aria-label","check or uncheck to complete or uncomplete todo list");
+    // input.id = `${textTodo.value.substring(0, 1)}${listId}`;
+    input.id = `${value.substring(0, 1)}${listId}`;
 
     let inputLabel = document.createElement("label");
     inputLabel.classList.add("todo-check");
@@ -66,7 +73,7 @@ function addTodo() {
 
     let todoContent = document.createElement("div");
     todoContent.classList.add("todo__text");
-    todoContent.textContent = textTodo.value;
+    todoContent.textContent = value;
 
     let cancelTodoBtn = document.createElement("button");
     cancelTodoBtn.classList.add("todo__button");
@@ -77,7 +84,29 @@ function addTodo() {
     todoCont.append(checkCont);
     todoCont.append(todoContent);
     todoCont.append(cancelTodoBtn);
+    todoCont.setAttribute('data-id', input.id);
+    
+    if (completed === 'true') {
+        todoCont.classList.add('completed');
+        input.checked = true;
+        todoCont.dataset.complete = true;
+    }
+    return todoCont;
+}
+
+// add new list
+function addTodo() {
+    if (textTodo.value == "") {
+        return;
+    }
+
+    let todoCont = createTodoCont(textTodo.value, false);
     todoListsCont.append(todoCont);
+    todoLocalStorage[todoCont.dataset.id] = {
+        value: todoCont.querySelector('.todo__text').textContent,
+        completed: false
+    }
+    localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
 
     listId += 1;
     textTodo.value = "";
@@ -146,10 +175,21 @@ function removeList(event) {
         return;
     }
 
+    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
+
     let listToRemove = event.target.closest(".todo");
     listToRemove.classList.add('remove-list-animation');
-    // listToRemove.remove();
-    // itemsLeftFunc();
+
+    let localId = listToRemove.dataset.id;
+    
+    for (let list in todoLocalStorage) {
+        if (localId == list) {
+            delete todoLocalStorage[list];
+            break;
+        }
+    }
+    
+    localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
     setTimeout(() => {
         listToRemove.remove();
         itemsLeftFunc();
@@ -158,9 +198,12 @@ function removeList(event) {
 
 // check list
 function checkEl(event, element) {
+    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
+
     let inputElement = element.previousElementSibling;
     let parentTodo = event.target.closest(".todo");
 
+    let localParent = parentTodo.dataset.id;
     if (inputElement.checked) {
         parentTodo.classList.remove("completed");
         parentTodo.setAttribute("data-complete", "false");
@@ -168,6 +211,13 @@ function checkEl(event, element) {
         parentTodo.classList.add("completed");
         parentTodo.setAttribute("data-complete", "true");
     }
+    for (let id in todoLocalStorage) {
+        if (id == localParent) {
+            todoLocalStorage[id].completed = parentTodo.dataset.complete;
+            break;
+        }
+    }
+    localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
     itemsLeftFunc();
 }
 
@@ -223,15 +273,25 @@ function filter(event) {
 }
 
 function clearCompleted() {
+    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
     for (let list of todoListsCont.querySelectorAll('.todo')) {
         if (list.dataset.complete == 'true') {
             list.classList.add('remove-list-animation');
+            let localId = list.dataset.id;
+            for (let id in todoLocalStorage) {
+                if (id == localId) {
+                    delete todoLocalStorage[id];
+                    break;
+                }
+            }
             setTimeout(() => {
                 list.remove();
             }, 2100);
         }
     }
+    localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
 }
+
 
 // -------------------------
 
@@ -266,15 +326,59 @@ todoListsCont.addEventListener('keydown', event => {
     if (!((event.key == ' ' || event.key == 'Enter') && event.target.closest('.todo-check'))) {
         return;
     }
+    todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
     let chackLabel = event.target.closest('.todo-check');
+    let parentTodo = event.target.closest('.todo');
+
+    let localParent = parentTodo.dataset.id;
+     
     if (chackLabel.previousElementSibling.checked) {
         chackLabel.previousElementSibling.checked = false;
-        event.target.closest('.todo').setAttribute("data-complete", "false");
-        event.target.closest('.todo').classList.remove('completed');
+        // event.target.closest('.todo').setAttribute("data-complete", "false");
+        // event.target.closest('.todo').classList.remove('completed');
+        parentTodo.setAttribute("data-complete", "false");
+        parentTodo.classList.remove('completed');
     } else {
         chackLabel.previousElementSibling.checked = true;
-        event.target.closest('.todo').setAttribute("data-complete", "true");
-        event.target.closest('.todo').classList.add('completed');
+        // event.target.closest('.todo').setAttribute("data-complete", "true");
+        // event.target.closest('.todo').classList.add('completed');
+        parentTodo.setAttribute("data-complete", "true");
+        parentTodo.classList.add('completed');
     }
+    for (let id in todoLocalStorage) {
+        if (id == localParent) {
+            todoLocalStorage[id].completed = parentTodo.dataset.complete;
+            break;
+        }
+    }
+    localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
+
     itemsLeftFunc();
 })
+
+window.addEventListener('load', event => {
+    if (JSON.parse(localStorage.getItem('lists'))) {
+        todoLocalStorage = JSON.parse(localStorage.getItem('lists'));
+        let newLocalStorage = {};
+        for (let list in todoLocalStorage) {
+            let todoCont = createTodoCont(todoLocalStorage[list].value, todoLocalStorage[list].completed);
+            todoCont.dataset.id = `${list}${localID}`;
+            localID += 1;
+            todoListsCont.append(todoCont);
+            todoCont.querySelector('input').id = todoCont.dataset.id;
+            todoCont.querySelector('label').setAttribute('for', todoCont.dataset.id);
+            
+            newLocalStorage[todoCont.dataset.id] = {
+                value: todoCont.querySelector('.todo__text').textContent,
+                completed: todoCont.dataset.complete
+            }
+
+        }
+        todoLocalStorage = newLocalStorage;
+        localStorage.setItem('lists', JSON.stringify(todoLocalStorage));
+        itemsLeftFunc();
+    }
+})
+
+// localStorage.clear();
+// localStorage.clear();
