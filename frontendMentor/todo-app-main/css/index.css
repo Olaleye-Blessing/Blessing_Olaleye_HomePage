@@ -100,6 +100,9 @@ input[type="text"] {
 
 .text, .todo__text {
   margin-left: clamp(0.8rem, 1.2vw, 2rem);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 799px) {
