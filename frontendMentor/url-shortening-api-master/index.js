@@ -16,7 +16,7 @@ const historySection = document.querySelector('.history');
 
 const historyListsCont = document.querySelector(".history__lists");
 
-let allLists = [];
+let allListsLinks = [];
 
 class BadRequest extends Error {
     constructor(message) {
@@ -156,14 +156,14 @@ form.addEventListener("submit", async function (e) {
     urlInput.focus();
 
     // save max of 5 in the local storage
-    if (allLists.length >= 5) {
+    if (allListsLinks.length >= 5) {
         historyListsCont.lastElementChild.remove();
-        allLists.shift();
+        allListsLinks.shift();
     }
 
-    allLists.push(urlResult);
+    allListsLinks.push(urlResult);
 
-    if (allLists.length == 1) {
+    if (allListsLinks.length == 1) {
         createClearHistoryBtn();
     }
 
@@ -174,12 +174,12 @@ form.addEventListener("submit", async function (e) {
     }, 2000);
     
     
-    localStorage.setItem(`lists`, JSON.stringify(allLists));
+    localStorage.setItem(`lists`, JSON.stringify(allListsLinks));
 
     // if (localStorage.getItem('lists') == null) {
-    //     localStorage.setItem('lists', JSON.stringify(allLists))
+    //     localStorage.setItem('lists', JSON.stringify(allListsLinks))
     // } else {
-    //     localStorage.setItem(`lists`, JSON.stringify(allLists));
+    //     localStorage.setItem(`lists`, JSON.stringify(allListsLinks));
     // }
 });
 
@@ -192,28 +192,28 @@ function loadLocalStorage(links) {
 
 window.addEventListener("load", () => {
     if (localStorage.getItem("lists") !== null) {
-        allLists = JSON.parse(localStorage.getItem("lists"));
-        loadLocalStorage(allLists);
+        allListsLinks = JSON.parse(localStorage.getItem("lists"));
+        loadLocalStorage(allListsLinks);
 
-        if(allLists.length != 0) {
+        if(allListsLinks.length != 0) {
             createClearHistoryBtn();
         }
     }
-    // allLists = JSON.parse(localStorage.getItem("lists"));
-    // // console.log(allLists);
-    // // loadLocalStorage(allLists);
+    // allListsLinks = JSON.parse(localStorage.getItem("lists"));
+    // // console.log(allListsLinks);
+    // // loadLocalStorage(allListsLinks);
     
-    // if(allLists.length != 0) {
-    //     loadLocalStorage(allLists);
+    // if(allListsLinks.length != 0) {
+    //     loadLocalStorage(allListsLinks);
     //     createClearHistoryBtn();
     // }
-    // if (allLists != null) {
-    //     allLists = JSON.parse(localStorage.getItem("lists"));
-    // // console.log(allLists);
-    // // loadLocalStorage(allLists);
+    // if (allListsLinks != null) {
+    //     allListsLinks = JSON.parse(localStorage.getItem("lists"));
+    // // console.log(allListsLinks);
+    // // loadLocalStorage(allListsLinks);
     
-    //     if(allLists.length != 0) {
-    //         loadLocalStorage(allLists);
+    //     if(allListsLinks.length != 0) {
+    //         loadLocalStorage(allListsLinks);
     //         createClearHistoryBtn();
     //     }
     // }
@@ -260,9 +260,9 @@ function clearHistory(event) {
         historyListsCont.firstElementChild.remove();
     }
 
-    allLists = [];
+    allListsLinks = [];
 
-    localStorage.setItem(`lists`, JSON.stringify(allLists));
+    localStorage.setItem(`lists`, JSON.stringify(allListsLinks));
 
     historySection.querySelector('.clear-history').remove();
 }
