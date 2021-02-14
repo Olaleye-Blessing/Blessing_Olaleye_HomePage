@@ -174,7 +174,7 @@ form.addEventListener("submit", async function (e) {
     }, 2000);
     
     
-    localStorage.setItem(`lists`, JSON.stringify(allListsLinks));
+    localStorage.setItem(`listsLinks`, JSON.stringify(allListsLinks));
 
     // if (localStorage.getItem('lists') == null) {
     //     localStorage.setItem('lists', JSON.stringify(allListsLinks))
@@ -191,8 +191,8 @@ function loadLocalStorage(links) {
 }
 
 window.addEventListener("load", () => {
-    if (localStorage.getItem("lists") !== null) {
-        allListsLinks = JSON.parse(localStorage.getItem("lists"));
+    if (localStorage.getItem("listsLinks") !== null) {
+        allListsLinks = JSON.parse(localStorage.getItem("listsLinks"));
         loadLocalStorage(allListsLinks);
 
         if(allListsLinks.length != 0) {
@@ -262,7 +262,7 @@ function clearHistory(event) {
 
     allListsLinks = [];
 
-    localStorage.setItem(`lists`, JSON.stringify(allListsLinks));
+    localStorage.setItem(`listsLinks`, JSON.stringify(allListsLinks));
 
     historySection.querySelector('.clear-history').remove();
 }
